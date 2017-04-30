@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Android的消息机制 | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android的消息机制 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/01/Android的消息机制/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
+<meta property="og:updated_time" content="2017-04-30T16:38:48.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android的消息机制 | Chandelierr">
+<meta name="twitter:description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Android的消息机制</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-01" class="post-meta__date date">2017-05-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="Android的消息机制"><a href="#Android的消息机制" class="headerlink" title="Android的消息机制"></a>Android的消息机制</h1><p>系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。</p>
+<p>系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。</p>
+<p>那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会降低 UI 访问的效率，因为锁机制会阻塞某些线程的执行。</p>
+<h2 id="Looper的工作原理"><a href="#Looper的工作原理" class="headerlink" title="Looper的工作原理"></a>Looper的工作原理</h2><p>Looper 任务：消息循环。</p>
+<p>Looper.prepare() ，这个方法会调用Looper的构造方法，创建出一个Looper对象，同时在构造方法中生成一个消息队列 MessageQueue ，生成的 Looper 对象放入一个ThreadLocal 中，ThreadLocal 用于对 Looper 对象进行管理，确保每个线程只有一个 Looper 对象。</p>
+<p>Looper.loop() ,用于开启消息循环，方法中有一个死循环，用来不断从消息队列中取出消息，判断是否为空，为空退出，不为空的话 执行 msg.target.dispatchMessage(msg) ,其中 msg.target 就是发送这条消息的 Handler, 执行它的 dispatchMessage 方法来处理消息，这样就成功的将代码逻辑切换到指定的线程中去执行了。</p>
+<p>Looper.quit(), Looper提供了两种方式退出，quit 和 quitSafely， 两者的区别在于 quit 是直接退出Looper， 而 quitSafely 只是谁的那个一个退出标记，然后把消息队列中已有的消息处理完毕之后才安全的退出。Looper 退出后，通过 Handler 发送消息会失败，send 返回false。</p>
+<h2 id="Handler的工作原理"><a href="#Handler的工作原理" class="headerlink" title="Handler的工作原理"></a>Handler的工作原理</h2><p>Handler 任务：消息的发送和接收。</p>
+<p>消息的发送可以通过 post 的一系列方法以及 send 的一系列方法来实现。Handler 发送消息的过程仅仅是向消息队列中插入了一条消息， MessageQueue 的 next 方法就会返回这条消息给 Looper， Looper 收到消息后就开始处理了，最终消息由 Looper 交友 Handler 处理， 即 Handler 的 dispatchMessage 方法会被调用， 这是Handler 就进入了处理消息的阶段。 </p>
+<p>Handler 的消息处理过程如下： </p>
+<p>首先，检查Message 的 callback 是否为 null ，不为空就通过handleCallback 来处理消息。 Message 的 callback 是一个Runnable 对象， 实际上就是 Handler 的 post 方法所传递的 Runnable 参数; 为空就继续判断。</p>
+<p>其次，检查 mCallback 是否为 null， 如果 mCallback 为空，说明这是一个没有子类的Handler，所以直接执行 handler 的 handleMessage; 不为 null 就调用 mCallback 的 handleMessage 方法来判断是否为空，返回 true 就结束, 返回 false 就 调用 handler 的 handleMessage 来处理消息。</p>
+<h2 id="MessageQueue-工作原理"><a href="#MessageQueue-工作原理" class="headerlink" title="MessageQueue 工作原理"></a>MessageQueue 工作原理</h2><p>MessageQueue 任务：插入和读取。</p>
+<p>插入的方法是 enqueueMessage ,消息队列虽然叫队列，但是其底部实现是单链表（因为单链表在插入和删除动作上有优势，而且不需要一块连续的存储空间），enqueueMessage 就是执行单链表的插入操作。</p>
+<p>读取本身伴随着删除操作，用的方法是 next， 这是一个无限循环的方法，如果队列中没有消息，那么 next 方法就一直阻塞在哪里。当有新消息来时，next 方法就返回这条消息并从单链表移除。</p>
+<h2 id="ThreadLocal-的工作原理"><a href="#ThreadLocal-的工作原理" class="headerlink" title="ThreadLocal 的工作原理"></a>ThreadLocal 的工作原理</h2><p>ThreadLocal 是一个线程内部的数据存储类，通过它可以在指定的线程中存储数据，数据存储后，只有在指定线程中可以获取到存储的数据，对于其他线程来说无法获取到数据。一般来说，当某些数据是以线程为作用域并且不同线程具有不同的数据副本的时候，就可以考虑 ThreadLocal。 比如 Handler，它需要获取当前线程的 Looper， 很显然 Looper 的作用域就是线程并且不同线程具有不同的 Looper，这个时候通过 ThreadLocal 就可以轻松实现 Looper 在线程中的获取。</p>
+<h2 id="三者关系"><a href="#三者关系" class="headerlink" title="三者关系"></a>三者关系</h2><p>一个 handler 持有一个消息队列的引用和它构造时所属线程的 Looper 的引用，也就是说， 一个 Handler 必定有它对应的消息队列和 Looper，一个线程至多只能有一个 Looper 和消息队列，但是一个线程可以有多个 Handler。</p>
+<p>Handler 的创建时会采用当前线程的 Looper 来构建内部的消息循环系统，如果当前线程没有 Looper，那么就会报错。Handler 创建完毕后，这个时候其内部的的 Looper 以及 MessageQueue 就可以和 Handler 一起协同工作了，然后通过 Handler 的 post 方法将一个Runnable 投递到 Handler 内部的 Looper 中处理，也可以通过 Handler 的 send 方法发送一个消息，这个消息同样会在 Looper 中去处理。其实 post 方法最终也是通过 send 方法来完成的。当 Handler 的 send 方法被调用时，它会调用 MessageQueue 的 enqueueMessage 方法将这个消息加到消息队列中，然后 Looper 发现有新消息到来时，就会处理这个消息，最终消息中的 Runnable 或者 Handler 的handleMessage 方法就会被调用。注意 Looper 时运行在创建 Handler 所在的线程中的，这样一来 Handler 中的业务逻辑就被切换到创建 Handler 所在的线程中去执行了。</p>
+<h2 id="handler-内存泄漏"><a href="#handler-内存泄漏" class="headerlink" title="handler 内存泄漏"></a>handler 内存泄漏</h2><p>看下面的代码，会出现什么问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Handler mLeakyHandler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">      <span class="comment">// ... </span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里会有一个警告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">⚠ In Android, Handler classes should be static or leaks might occur.</div></pre></td></tr></table></figure>
+<p>告诉我们，handler 类应该是静态的，否则可能会有内存泄漏发生。</p>
+<p>这是为什么呢？这里的 handler 是非静态内部类，在 java 中，非静态内部类和匿名类都会潜在的引用它们所属的外部类（静态内部类不会）。在这里，handler 持有外部 Actiivty 的引用，当这个 Activity 需要被回收时，消息队列中还有数据没有处理完成，所以会等到消息发出后，才进行回收，在者期间，外部 Actiivty 没有办法被回收，造成内部泄露。</p>
+<p>解决方法：</p>
+<ol>
+<li>将 handler 放在单独的类文件中，或者使用静态内部类便可以避免内存泄露。</li>
+<li>可以在 handler 内部使用若引用的方式指向所在的 Activity。</li>
+</ol>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
