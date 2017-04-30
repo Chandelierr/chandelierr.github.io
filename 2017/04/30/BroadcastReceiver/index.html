@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册，等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;)">
+    <meta name="description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册， 等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BroadcastReceiver | Chandelierr">
 <meta property="og:url" content="http://chandelierr.github.io/2017/04/30/BroadcastReceiver/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册，等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;)">
-<meta property="og:updated_time" content="2017-04-30T14:58:53.182Z">
+<meta property="og:description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册， 等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;">
+<meta property="og:updated_time" content="2017-04-30T15:08:52.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BroadcastReceiver | Chandelierr">
-<meta name="twitter:description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册，等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;)">
+<meta name="twitter:description" content="一、BroadcastReceiver1.1、BroadcastReceiver 的使用1.1.1、动态注册动态注册指的是在代码中注册， 等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。 1234intentFilter = new IntentFilter();intentFilter.addAction(&quot;android.net.conn.CONECTIVITY_CHANGE&quot;">
     
     
     
@@ -176,7 +176,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="一、BroadcastReceiver"><a href="#一、BroadcastReceiver" class="headerlink" title="一、BroadcastReceiver"></a>一、BroadcastReceiver</h1><h1 id="1-1、BroadcastReceiver-的使用"><a href="#1-1、BroadcastReceiver-的使用" class="headerlink" title="1.1、BroadcastReceiver 的使用"></a>1.1、BroadcastReceiver 的使用</h1><h2 id="1-1-1、动态注册"><a href="#1-1-1、动态注册" class="headerlink" title="1.1.1、动态注册"></a>1.1.1、动态注册</h2><p>动态注册指的是在代码中注册，等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。</p>
+    <h1 id="一、BroadcastReceiver"><a href="#一、BroadcastReceiver" class="headerlink" title="一、BroadcastReceiver"></a>一、BroadcastReceiver</h1><h1 id="1-1、BroadcastReceiver-的使用"><a href="#1-1、BroadcastReceiver-的使用" class="headerlink" title="1.1、BroadcastReceiver 的使用"></a>1.1、BroadcastReceiver 的使用</h1><h2 id="1-1-1、动态注册"><a href="#1-1-1、动态注册" class="headerlink" title="1.1.1、动态注册"></a>1.1.1、动态注册</h2><p>动态注册指的是在代码中注册， 等程序运行时才能够接收广播。下面是一个监听网络变化的广播接收器。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.net.conn.CONECTIVITY_CHANGE"</span>);</div><div class="line">networkChangeReceiver = <span class="keyword">new</span> NetWorkChangeReceiver();</div><div class="line">rigisterReceiver(networkChangeReceiver,intentFilter);</div></pre></td></tr></table></figure>
 <ul>
 <li>广播接收器想要接受什么广播，就在 addAction 里添加相应的 action ，上述代码中的 <strong>android.net.conn.CONECTIVITY_CHANGE</strong> 就是在网络发生变化时，系统发出的广播。</li>
