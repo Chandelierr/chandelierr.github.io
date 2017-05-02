@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
+    <meta name="description" content="系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会降低 UI 访问的效率，">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android的消息机制 | Chandelierr">
 <meta property="og:url" content="http://chandelierr.github.io/2017/05/01/Android的消息机制/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
-<meta property="og:updated_time" content="2017-04-30T16:38:48.817Z">
+<meta property="og:description" content="系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会降低 UI 访问的效率，">
+<meta property="og:updated_time" content="2017-05-02T09:44:57.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android的消息机制 | Chandelierr">
-<meta name="twitter:description" content="Android的消息机制系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会">
+<meta name="twitter:description" content="系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。 系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。 那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会降低 UI 访问的效率，">
     
     
     
@@ -176,7 +176,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="Android的消息机制"><a href="#Android的消息机制" class="headerlink" title="Android的消息机制"></a>Android的消息机制</h1><p>系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。</p>
+    <p>系统之所以提供 Handler ，主要原因就是为了解决在子线程中无法访问 UI 的矛盾。</p>
 <p>系统为什么不允许在子线程中访问 UI 呢？ 这是因为 Android 的 UI 控件不是线程安全的，如果在多线程中并发访问可能会导致 UI 控件处于不可预知的状态。</p>
 <p>那么为什么系统不对 UI 控件的访问加上锁机制呢? 缺点有两个：首先加上锁机制会让 UI 访问逻辑变得复杂；其次锁机制会降低 UI 访问的效率，因为锁机制会阻塞某些线程的执行。</p>
 <h2 id="Looper的工作原理"><a href="#Looper的工作原理" class="headerlink" title="Looper的工作原理"></a>Looper的工作原理</h2><p>Looper 任务：消息循环。</p>

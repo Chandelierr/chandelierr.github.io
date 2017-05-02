@@ -16,19 +16,19 @@
     
     
 
-    <meta name="description" content="一、ActivityActivity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。 1.1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.suppo">
+    <meta name="description" content="Activity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。  1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.support.v7.app.">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Activity | Chandelierr">
 <meta property="og:url" content="http://chandelierr.github.io/2017/04/30/Activity/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="一、ActivityActivity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。 1.1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.suppo">
+<meta property="og:description" content="Activity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。  1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.support.v7.app.">
 <meta property="og:image" content="http://chandelierr.github.io/2017/04/30/Activity/典型情况下acticity的生命周期.jpg">
 <meta property="og:image" content="http://chandelierr.github.io/2017/04/30/Activity/异常情况下acticity的生命周期.png">
-<meta property="og:updated_time" content="2017-05-02T09:40:13.235Z">
+<meta property="og:updated_time" content="2017-05-02T09:44:33.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Activity | Chandelierr">
-<meta name="twitter:description" content="一、ActivityActivity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。 1.1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.suppo">
+<meta name="twitter:description" content="Activity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。  1、Activity 的使用（1）、继承 Activity，实现 Activity 的生命周期方法。 123456789101112131415161718192021222324252627282930313233343536import android.support.v7.app.">
 <meta name="twitter:image" content="http://chandelierr.github.io/2017/04/30/Activity/典型情况下acticity的生命周期.jpg">
     
     
@@ -179,12 +179,14 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="一、Activity"><a href="#一、Activity" class="headerlink" title="一、Activity"></a>一、Activity</h1><p>Activity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。</p>
-<h1 id="1-1、Activity-的使用"><a href="#1-1、Activity-的使用" class="headerlink" title="1.1、Activity 的使用"></a>1.1、Activity 的使用</h1><p>（1）、继承 Activity，实现 Activity 的生命周期方法。</p>
+    <blockquote>
+<p>Activity 是一种可以包含用户界面的组件，主要用于和用户交互。一个应用程序中可以包含零个或多个活动。</p>
+</blockquote>
+<h1 id="1、Activity-的使用"><a href="#1、Activity-的使用" class="headerlink" title="1、Activity 的使用"></a>1、Activity 的使用</h1><p>（1）、继承 Activity，实现 Activity 的生命周期方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStart();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPause();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onResume();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>（2）、在 <strong>AndroidManifest.xml</strong> 文件中注册 Activity。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">               <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
-<h1 id="1-2、Activity的生命周期"><a href="#1-2、Activity的生命周期" class="headerlink" title="1.2、Activity的生命周期"></a>1.2、Activity的生命周期</h1><h2 id="1-2-1、典型情况下的生命周期"><a href="#1-2-1、典型情况下的生命周期" class="headerlink" title="1.2.1、典型情况下的生命周期"></a>1.2.1、典型情况下的生命周期</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/2017/04/30/Activity/典型情况下acticity的生命周期.jpg" alt="典型情况下acticity的生命周期"></h2><ul>
+<h1 id="2、Activity的生命周期"><a href="#2、Activity的生命周期" class="headerlink" title="2、Activity的生命周期"></a>2、Activity的生命周期</h1><h2 id="2-1、典型情况下的生命周期"><a href="#2-1、典型情况下的生命周期" class="headerlink" title="2.1、典型情况下的生命周期"></a>2.1、典型情况下的生命周期</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/2017/04/30/Activity/典型情况下acticity的生命周期.jpg" alt="典型情况下acticity的生命周期"></h2><ul>
 <li>onCreate():  初始化</li>
 <li>onRestart():  Activity 重新启动，从不可见重新变为可见状态</li>
 <li>onStart():  已经可见，但没有出现在前台，无法与用户交互，看不见</li>
@@ -196,7 +198,7 @@ classes that you can use:
 <p>PS：onCreate 和 onDestory：是否存在</p>
 <p>​    onStart 和 onStop：是否可见</p>
 <p>​    onResume 和 onPause：是否位于前台</p>
-<h2 id="1-2-2、异常情况下的生命周期"><a href="#1-2-2、异常情况下的生命周期" class="headerlink" title="1.2.2、异常情况下的生命周期"></a>1.2.2、异常情况下的生命周期</h2><p><strong>情况一：</strong>资源相关的系统配置发生改变导致 Activity 被杀死并重新创建。</p>
+<h2 id="2-2、异常情况下的生命周期"><a href="#2-2、异常情况下的生命周期" class="headerlink" title="2.2、异常情况下的生命周期"></a>2.2、异常情况下的生命周期</h2><p><strong>情况一：</strong>资源相关的系统配置发生改变导致 Activity 被杀死并重新创建。</p>
 <p><img src="/2017/04/30/Activity/异常情况下acticity的生命周期.png" alt="异常情况下acticity的生命周期"></p>
 <ul>
 <li>onSaveInstanceState():  是用来保存当前 Activity 的状态，这个方法调用的时机是在 onStop() 之前，它和 onPause() 没有既定的时序关系，正常情况下不会被调用。</li>
@@ -216,19 +218,19 @@ classes that you can use:
 <p>当系统内存不足时，系统就会按照上述优先级去杀死目标 Activity 所在的进程。如果一个进程中没有四大组件再执行，那么这个进程将很快被系统杀死，因此，一些后台工作不适合脱离四大组件而肚子运行在后台，这样进程很容易被杀死。比较好的方法是将后台工作放入 Service 中从而保证进程有一定的优先级，这样就不会轻易地被系统杀死。</p>
 <p>如果当某项系统配置发生改变后，我们不想系统重新创建 Activity，可以给 Activity 指定 <strong>configChanges</strong> 属性。比如不想让 Activity 在屏幕旋转地时候重新创建，就可以给 configChanges 属性添加 orientation 这个值。如果想指定多个值，可以用“|”连接起来。</p>
 <p><code>eg：  android:configChanges = &quot;orientation&quot;</code></p>
-<h1 id="1-3、Activity的启动模式"><a href="#1-3、Activity的启动模式" class="headerlink" title="1.3、Activity的启动模式"></a>1.3、Activity的启动模式</h1><h2 id="1-3-1、四种启动模式"><a href="#1-3-1、四种启动模式" class="headerlink" title="1.3.1、四种启动模式"></a>1.3.1、四种启动模式</h2><ul>
+<h1 id="3、Activity的启动模式"><a href="#3、Activity的启动模式" class="headerlink" title="3、Activity的启动模式"></a>3、Activity的启动模式</h1><h2 id="3-1、四种启动模式"><a href="#3-1、四种启动模式" class="headerlink" title="3.1、四种启动模式"></a>3.1、四种启动模式</h2><ul>
 <li><strong>standard</strong>  标准模式，默认模式。每次启动 Activity 都会重新创建一个新的实例，不管这个实例是否已经存在。在这个模式下，谁启动了这个Activity，那么这个 Activity 就运行在启动它的那个 Activity 所在的栈中。</li>
 <li><strong>singleTop</strong>  栈顶复用模式。在这种模式下，如果 Activity 已经位于任务栈的栈顶，那么此Activity不会被重新创建，同时它的onNewIntent方法会被毁掉，通过此方法的参数我们可以取出当前的请求的信息。</li>
 <li><strong>singleTask</strong>  栈内复用模式。这是一种单实例模式，在这种模式下，只要 Activity 在一个栈中存在，那么多次启动此 Activity 都不会重新创建实例，和 singleTop 一样，系统也会自动调用其 onNewIntent。同时由于 singleTask 默认具有 clearTop 的效果，会导致栈内所有在被启动的 Activity 上面的 Activity 全部出栈，最终被启动的Activity留在栈顶。</li>
 <li><strong>singleInstance</strong>  单实例模式。这是一种加强的 singleTask 模式，它除了具有 singleTask 模式的所有特性外，还加强了一点，那就是具有此种模式的 Activity 智能单独地位于一个任务栈中。</li>
 </ul>
 <p>PS：任务栈：<strong>TaskAffinity</strong>，可以被翻译成任务相关性。这个参数标识了一个 Activity 所需要地任务栈的名字，默认情况下，所有 Activity 所需的任务栈的名字为应用的包名。我们也可以为每个 Activity 都单独指定 TaskAffinity 属性，这个属性值必须不能和包名相同，否则就相当于没有指定。TaskAffinity 属性主要和 singleTask 启动模式或者  allowTaskReparenting 属性配对使用，在其他情况下没有意义。任务栈分为前台任务栈和后台任务栈，后台任务栈中的 Activity 处于暂停状态，用户可以通过切换将后台任务栈再次调到前台。</p>
-<h2 id="1-3-2、指定启动模式"><a href="#1-3-2、指定启动模式" class="headerlink" title="1.3.2、指定启动模式"></a>1.3.2、指定启动模式</h2><p><strong>方法一：</strong> 通过 AndroidMenifest 为 Activity 指定启动模式。</p>
+<h2 id="3-2、指定启动模式"><a href="#3-2、指定启动模式" class="headerlink" title="3.2、指定启动模式"></a>3.2、指定启动模式</h2><p><strong>方法一：</strong> 通过 AndroidMenifest 为 Activity 指定启动模式。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> </span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">            <span class="attr">android:launchMode</span>=<span class="string">"singleTask"</span>&gt;</div></pre></td></tr></table></figure>
 <p><strong>方法二：</strong> 通过在Intent中设置标志位来为 Activity指 定启动模式。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setClass(MainActivity.<span class="keyword">this</span>,SecondActivity.class);</div><div class="line">intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
 <p>当两种同时存在时，以第二种为准；第一种方式无法直接为 Activity 设定 FLAG_ACTIVITY_CLEAR_TOP 标识，而第二种无法为 Activity 指定 singleInstance 模式。</p>
-<h2 id="1-3-3、Activity-的-Flags"><a href="#1-3-3、Activity-的-Flags" class="headerlink" title="1.3.3、Activity 的 Flags"></a>1.3.3、Activity 的 Flags</h2><table>
+<h2 id="3-3、Activity-的-Flags"><a href="#3-3、Activity-的-Flags" class="headerlink" title="3.3、Activity 的 Flags"></a>3.3、Activity 的 Flags</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">标记位</th>
@@ -254,12 +256,12 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<h1 id="1-4、Activity-的通讯"><a href="#1-4、Activity-的通讯" class="headerlink" title="1.4、Activity 的通讯"></a>1.4、Activity 的通讯</h1><p>在同一个进程中的 Activity 之间的数据交互方式有以下几种：</p>
+<h1 id="4、Activity-的通讯"><a href="#4、Activity-的通讯" class="headerlink" title="4、Activity 的通讯"></a>4、Activity 的通讯</h1><p>在同一个进程中的 Activity 之间的数据交互方式有以下几种：</p>
 <ol>
 <li>Intent</li>
 <li>广播</li>
 </ol>
-<h2 id="1-4-1、借助-Intent-进行数据交互的几种方式"><a href="#1-4-1、借助-Intent-进行数据交互的几种方式" class="headerlink" title="1.4.1、借助 Intent 进行数据交互的几种方式"></a>1.4.1、借助 Intent 进行数据交互的几种方式</h2><p>（1）、传递简单数据</p>
+<h2 id="4-1、借助-Intent-进行数据交互的几种方式"><a href="#4-1、借助-Intent-进行数据交互的几种方式" class="headerlink" title="4.1、借助 Intent 进行数据交互的几种方式"></a>4.1、借助 Intent 进行数据交互的几种方式</h2><p>（1）、传递简单数据</p>
 <p>通过 intent 的 putExtra() 和 get<em>*</em>Extra() 方法</p>
 <p>MainActivity</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,SecondActivity.class);</div><div class="line">intent.putExtra(<span class="string">"msg1"</span>,<span class="string">"dagedage"</span>);</div><div class="line">intent.putExtra(<span class="string">"msg2"</span>,<span class="string">"woshixiaodi"</span>);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
@@ -277,8 +279,8 @@ classes that you can use:
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,SecondActivity.class);</div><div class="line">intent.putExtra(<span class="string">"UserMessage"</span>,<span class="keyword">new</span> UserMessage(<span class="string">"Chandelier"</span>,<span class="string">"20"</span>));</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
 <p>SecondActivity</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UserMessage um = (UserMessage)getIntent().getSerializableExtra(<span class="string">"UserMessage"</span>);</div><div class="line">textView.setText(um.getName() + <span class="string">","</span>+ um.getAge());</div></pre></td></tr></table></figure>
-<h2 id="1-4-2、使用广播进行-Activity-之间的通讯"><a href="#1-4-2、使用广播进行-Activity-之间的通讯" class="headerlink" title="1.4.2、使用广播进行 Activity 之间的通讯"></a>1.4.2、使用广播进行 Activity 之间的通讯</h2><p>在要发送消息的 Activity 中发送广播，然后再要接收消息的 Activity 中定义广播接收者并注册，接收广播。</p>
-<h1 id="1-5、Activity-的启动过程"><a href="#1-5、Activity-的启动过程" class="headerlink" title="1.5、Activity 的启动过程"></a>1.5、Activity 的启动过程</h1><p>《Android开发艺术探索》第九章讲到了 Activity 的启动过程，非常复杂，经过一系列的交付委托，最终由 <strong>performLaunchActivity</strong> 方法最终完成了Activity 对象的创建和启动过程，并且 ActivityThread 通过 <strong>handleResumeActivity</strong> 方法来调用被启动的 Activity 的 onResume 这一生命周期方法。</p>
+<h2 id="4-2、使用广播进行-Activity-之间的通讯"><a href="#4-2、使用广播进行-Activity-之间的通讯" class="headerlink" title="4.2、使用广播进行 Activity 之间的通讯"></a>4.2、使用广播进行 Activity 之间的通讯</h2><p>在要发送消息的 Activity 中发送广播，然后再要接收消息的 Activity 中定义广播接收者并注册，接收广播。</p>
+<h1 id="5、Activity-的启动过程"><a href="#5、Activity-的启动过程" class="headerlink" title="5、Activity 的启动过程"></a>5、Activity 的启动过程</h1><p>《Android开发艺术探索》第九章讲到了 Activity 的启动过程，非常复杂，经过一系列的交付委托，最终由 <strong>performLaunchActivity</strong> 方法最终完成了Activity 对象的创建和启动过程，并且 ActivityThread 通过 <strong>handleResumeActivity</strong> 方法来调用被启动的 Activity 的 onResume 这一生命周期方法。</p>
 <p><strong>handleLaunchActivity</strong> 源码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handleLaunchActivity</span><span class="params">(ActivityClientRecord r,Intent customIntent)</span></span>&#123;</div><div class="line">  ...</div><div class="line">  <span class="keyword">if</span>(localLOGV) </div><div class="line">  	Slog.v(TAG,<span class="string">"Handling launch of "</span> + r);</div><div class="line">  Activity a = performLaunchActivity(r,customIntent);</div><div class="line">  <span class="keyword">if</span>(a != <span class="keyword">null</span>)&#123;</div><div class="line">    r.createdConfig = <span class="keyword">new</span> Configuration(mConfiguration);</div><div class="line">    Bundle oldState = r.state;</div><div class="line">    handleResumeActivity(r.token, <span class="keyword">false</span>, r.isForward, !r.activity.mFinished &amp;&amp; !r.startNotResumed);</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>那么 performLaunchActivity 这个方法做了那些事情呢？</p>
