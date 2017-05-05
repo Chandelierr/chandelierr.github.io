@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      RecyclerView | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="RecyclerView 用于在有限的窗口展示大量的数据集。可以通过设置它提供的不同 LayoutManager (控制显示的方式)、ItemDecoration (控制 Item 间的间隔，可绘制)、ItemAnimator (控制 Item 增删的动画)实现一些效果。  可以看出，相比 ListView ，RecyclerView在功能上没有什么大的不同，不同之处在于实现了高度的解耦，给予开发">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RecyclerView | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/05/RecyclerView/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="RecyclerView 用于在有限的窗口展示大量的数据集。可以通过设置它提供的不同 LayoutManager (控制显示的方式)、ItemDecoration (控制 Item 间的间隔，可绘制)、ItemAnimator (控制 Item 增删的动画)实现一些效果。  可以看出，相比 ListView ，RecyclerView在功能上没有什么大的不同，不同之处在于实现了高度的解耦，给予开发">
+<meta property="og:updated_time" content="2017-05-05T12:30:29.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RecyclerView | Chandelierr">
+<meta name="twitter:description" content="RecyclerView 用于在有限的窗口展示大量的数据集。可以通过设置它提供的不同 LayoutManager (控制显示的方式)、ItemDecoration (控制 Item 间的间隔，可绘制)、ItemAnimator (控制 Item 增删的动画)实现一些效果。  可以看出，相比 ListView ，RecyclerView在功能上没有什么大的不同，不同之处在于实现了高度的解耦，给予开发">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">RecyclerView</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-05" class="post-meta__date date">2017-05-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h1><blockquote>
+<p>用于在有限的窗口展示大量的数据集。可以通过设置它提供的不同 LayoutManager (控制显示的方式)、ItemDecoration (控制 Item 间的间隔，可绘制)、ItemAnimator (控制 Item 增删的动画)实现一些效果。</p>
+</blockquote>
+<p>可以看出，相比 ListView ，RecyclerView在功能上没有什么大的不同，不同之处在于实现了高度的解耦，给予开发人员充分的自由，所以可以用这个控件实现 ListView、 GirdView，瀑布流等效果。</p>
+<p>基础功能使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mRecyclerView = findView(R.id.id_recyclerview);</div><div class="line"><span class="comment">//设置布局管理器</span></div><div class="line">mRecyclerView.setLayoutManager(layout);</div><div class="line"><span class="comment">//设置adapter</span></div><div class="line">mRecyclerView.setAdapter(adapter)</div><div class="line"><span class="comment">//设置Item增加、移除动画</span></div><div class="line">mRecyclerView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line"><span class="comment">//添加分割线</span></div><div class="line">mRecyclerView.addItemDecoration(<span class="keyword">new</span> DividerItemDecoration(</div><div class="line">                getActivity(), DividerItemDecoration.HORIZONTAL_LIST));</div></pre></td></tr></table></figure>
+<h2 id="一个小李子"><a href="#一个小李子" class="headerlink" title="一个小李子"></a>一个小李子</h2><p>1、在 build.gradle 中导入包</p>
+<p><code>compile &#39;com.android.support:recyclerview-v7:24.+&#39;</code></p>
+<p>2、写布局文件</p>
+<p>activity_main.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.chandelier.recyclerview.MainActivity"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></div><div class="line">            <span class="attr">android:id</span> = <span class="string">"@+id/recyclerViewId"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>item.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/pic_id"</span></div><div class="line">        <span class="attr">android:scaleType</span>=<span class="string">"centerCrop"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"5dp"</span></div><div class="line">        <span class="attr">android:layout_marginEnd</span>=<span class="string">"5dp"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>3、实现：</p>
+<p>MainActivity.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.chandelier.recyclerview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.AsyncTask;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.widget.LinearLayoutManager;</div><div class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</div><div class="line"><span class="keyword">import</span> android.text.TextUtils;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.json.JSONArray;</div><div class="line"><span class="keyword">import</span> org.json.JSONException;</div><div class="line"><span class="keyword">import</span> org.json.JSONObject;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG =<span class="string">"MainActivity"</span>;</div><div class="line">    <span class="keyword">private</span> RecyclerView recyclerView;</div><div class="line">    <span class="keyword">private</span> myAdapter mAdapter;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> lastVisibleItem ;</div><div class="line">    <span class="keyword">private</span> LinearLayoutManager linearLayoutManager;</div><div class="line">    <span class="keyword">private</span> okhttpClass okhttp;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> page = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> List&lt;picRes&gt;  more;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            okhttp = <span class="keyword">new</span> okhttpClass();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        more= <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//用来存放要加载的 Item（在这里是图片）对象（主要是url）</span></div><div class="line">        initView();<span class="comment">//初始化布局</span></div><div class="line">        setListener();<span class="comment">//设置监听事件</span></div><div class="line">        <span class="keyword">new</span> GetData().execute(<span class="string">"http://gank.io/api/data/福利/10/1"</span>);<span class="comment">//先加载一些 Item</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span>&#123;</div><div class="line">        recyclerView = (RecyclerView)findViewById(R.id.recyclerViewId);</div><div class="line">        linearLayoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);</div><div class="line">        recyclerView.setLayoutManager(linearLayoutManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setListener</span><span class="params">()</span></span>&#123;</div><div class="line">        recyclerView.addOnScrollListener(<span class="keyword">new</span> RecyclerView.OnScrollListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> newState)</span> </span>&#123;</div><div class="line">                <span class="keyword">super</span>.onScrollStateChanged(recyclerView, newState);</div><div class="line">                <span class="keyword">if</span> (newState == RecyclerView.SCROLL_STATE_IDLE</div><div class="line">                        &amp;&amp; lastVisibleItem +<span class="number">2</span>&gt;=linearLayoutManager.getItemCount()) &#123;</div><div class="line">                    <span class="keyword">new</span> GetData().execute(<span class="string">"http://gank.io/api/data/福利/10/"</span>+(++page));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrolled</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy)</span> </span>&#123;</div><div class="line">                <span class="keyword">super</span>.onScrolled(recyclerView, dx, dy);</div><div class="line">                lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">GetData</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">String</span>, <span class="title">Integer</span>, <span class="title">String</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(String... params)</span> </span>&#123;</div><div class="line">            String responce = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                responce = okhttp.getOp(params[<span class="number">0</span>]);</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> responce;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String result)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onPostExecute(result);</div><div class="line">            <span class="keyword">if</span>(!TextUtils.isEmpty(result))&#123;</div><div class="line"></div><div class="line">                JSONObject jsonObject;</div><div class="line">                JSONArray jsonarray = <span class="keyword">new</span> JSONArray();</div><div class="line">                <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    jsonObject = <span class="keyword">new</span> JSONObject(result);</div><div class="line">                    jsonarray = jsonObject.getJSONArray(<span class="string">"results"</span>);</div><div class="line">                    count = jsonarray.length();</div><div class="line">                &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">                String[] shujus = <span class="keyword">new</span> String[count];</div><div class="line"></div><div class="line"></div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; count; x++)&#123;</div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        shujus[x] = jsonarray.getJSONObject(x).getString(<span class="string">"url"</span>);</div><div class="line">                        Log.i(TAG,<span class="string">"shujus["</span>+x+<span class="string">"]:"</span>+shujus[x]);</div><div class="line">                        picRes pic = <span class="keyword">new</span> picRes(shujus[x]);</div><div class="line">                        more.add(pic);</div><div class="line">                        Log.i(TAG,<span class="string">"将pic加入到more中："</span>+x);</div><div class="line">                    &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(mAdapter==<span class="keyword">null</span>)&#123;</div><div class="line">                    mAdapter = <span class="keyword">new</span> myAdapter(MainActivity.<span class="keyword">this</span>,more);</div><div class="line">                    Log.i(TAG,<span class="string">"new 一个 myAdapter。"</span>);</div><div class="line">                    recyclerView.setAdapter(mAdapter);</div><div class="line">                    Log.i(TAG,<span class="string">"设置好 一个 myAdapter。"</span>);</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    mAdapter.notifyDataSetChanged();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>GetData：继承自 AyncTask,主要重写了两个方法。</p>
+<ul>
+<li><code>doInBackground(String... params)</code>：这个里面的代码在子线程中执行，执行一些耗时操作，这里主要使用 okHttp 进行网络请求，这里我对 okhttp 进行了小小的封装，下面会写到。</li>
+<li><code>onPostExecute(String result)</code>：这个方法是当后台任务执行完毕并通过 return 返回时调用。在这个方法里我主要是对网络请求返回的数据进行解析，将图片的url 存储到 picRes 中，picRes 会在下面贴，就是用来存储 Item 信息的一个类。并且构造一个适配器，并为 recyclerView 设置该适配器。</li>
+</ul>
+<p>setListener()：这个方法里主要是做当用户滑动屏幕时，剩下的 item 少于两个时，自动加载下一页的工作。注意：添加了监听器不要忘记清除。</p>
+<ul>
+<li><code>onScrolled (RecyclerView recyclerView,int dx,int dy)</code>:当滚动完成的时候，会调用此方法，第一个参数，表示哪一个 RecyclerView 会被调用；第二个参数表示水平滚动量；第三个参数垂直滚动量。</li>
+<li><code>onScrollStateChanged (RecyclerView recyclerView,int newState)</code>:RecyclerView 的滚动状态发生改变的时候，该方法会被回调。第二个参数表示更新的滚动状态，有三种：<ul>
+<li><code>SCROLL_STATE_IDLE</code>:RecyclerView 目前不滚动。</li>
+<li><code>SCROLL_STATE_DRAGGING</code>:RecyclerView  当前正在被外部输入拖动，例如用户触摸输入。</li>
+<li><code>SCROLL_STATE_SETTLING</code>:RecyclerView 目前正在移动到最终位置，而不再外部控制下。</li>
+</ul>
+</li>
+</ul>
+<p>这里面的 okhttpclass ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.chandelier.recyclerview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.squareup.okhttp.OkHttpClient;</div><div class="line"><span class="keyword">import</span> com.squareup.okhttp.Request;</div><div class="line"><span class="keyword">import</span> com.squareup.okhttp.Response;</div><div class="line"><span class="keyword">import</span> com.squareup.okhttp.ResponseBody;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">okhttpClass</span> </span>&#123;</div><div class="line">    OkHttpClient mOkHttpClient;</div><div class="line">    String TAG = <span class="string">"okhttpClass"</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">okhttpClass</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Log.i(TAG,<span class="string">"in okhttpClass!"</span>);</div><div class="line">        mOkHttpClient = <span class="keyword">new</span> OkHttpClient();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getOp</span><span class="params">(String url)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">        Log.i(TAG,<span class="string">"in getOp!"</span>);</div><div class="line">        Request request = <span class="keyword">new</span> Request.Builder().url(url).build();</div><div class="line">        Response response = mOkHttpClient.newCall(request).execute();</div><div class="line">        Log.i(TAG,<span class="string">"get responce"</span>);</div><div class="line">        String str;</div><div class="line">        <span class="keyword">if</span> (response.isSuccessful())&#123;</div><div class="line">            ResponseBody responceBody = response.body();</div><div class="line">            str = responceBody.string();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"error"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>picRes ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.chandelier.recyclerview;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">picRes</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> String url;<span class="comment">//图片地址</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">picRes</span><span class="params">(String url)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.url = url;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUrl</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> url;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>myAdapter：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.chandelier.recyclerview;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.squareup.picasso.Picasso;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">myAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">RecyclerView</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> List&lt;picRes&gt; data;</div><div class="line">    <span class="keyword">private</span> LayoutInflater inflater;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">myAdapter</span><span class="params">(Context context,List&lt;picRes&gt; data)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.context = context;</div><div class="line">        <span class="keyword">this</span>.data = data;</div><div class="line">        inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">myViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span></span>&#123;</div><div class="line">        <span class="keyword">public</span> ImageView iv;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">myViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(itemView);</div><div class="line">            iv= (ImageView) itemView.findViewById(R.id.pic_id);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> RecyclerView.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View itemView = inflater.inflate(R.layout.item, parent, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> myViewHolder(itemView);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        Picasso.with(context).load(data.get(position).getUrl()).into(((myViewHolder)holder).iv);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data!=<span class="keyword">null</span>?data.size():<span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>先看看重写的方法吧</p>
+<ul>
+<li><code>int getItemCount()</code>:返回适配器中数据集中的 Item 的总数。</li>
+<li><code>void onBindViewHolder(RecyclerView.ViewHolder holder, int position)</code>:由 RecyclerView 调用来在指定的位置显示数据，这个方法应该在定的位置更新 itemView 的内容。<ul>
+<li>请注意，与ListView不同，如果 item 的位置在数据集中更改，则 RecyclerView 将不会再次调用这个方法，除非 item 本身无效或者新的位置无法确定。因此，我们应该只在获取此方法中的相关数据 item 时使用 position 这个参数，并且不应该保留这个参数的副本。如果我们在之后需要一个 item 的 position (比如在监听器中)，应该使用 <code>getAdapaterPosition()</code> 方法。如果适配器可以处理有效的数据，就重写此方法。</li>
+<li>所以在这个方法中，我做的操作是将图片加载到 ViewHolder 中。这里使用到了 <code>Picasso</code>,picasso 是 Square 公司开源的一个  android图形缓存库，可以实现图片下载和缓存的功能，就像这个方法中，仅仅用一行代码就能实现图片的异步加载。他还解决了 android 中加载图片时需要解决的一些常见问题。后面我可能会写一篇博客详细说明，吧。</li>
+</ul>
+</li>
+<li><code>RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)</code>:当 RecyclerView 一个新的 ViewHolder 代表一个指定类型的 Item 时调用。一个新的 ViewHolder 应该以一个新的View，即可以代表给定类型的 item来构建。我们可以手动创建一个新的 View， 也可以从 xml 布局文件中 inflate 他，这里我使用的就是 inflate 。创建的 ViewHolder 将用于 onBindViewHolder() 中显示适配器的 item。由于它将重新用于在数据集中显示不同的项目，所以缓存对视图子视图的引用是以一个好主意，以避免不必要的 findViewById(int) 调用。</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
