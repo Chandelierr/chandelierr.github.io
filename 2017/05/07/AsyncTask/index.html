@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="AsyncTaskAsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行">
+    <meta name="description" content="AsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行很长时间，强烈建">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AsyncTask | Chandelierr">
 <meta property="og:url" content="http://chandelierr.github.io/2017/05/07/AsyncTask/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="AsyncTaskAsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行">
-<meta property="og:updated_time" content="2017-05-07T13:23:23.156Z">
+<meta property="og:description" content="AsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行很长时间，强烈建">
+<meta property="og:updated_time" content="2017-05-08T01:02:54.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AsyncTask | Chandelierr">
-<meta name="twitter:description" content="AsyncTaskAsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行">
+<meta name="twitter:description" content="AsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。 AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行很长时间，强烈建">
     
     
     
@@ -176,8 +176,10 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h1><p>AsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。</p>
+    <blockquote>
+<p>AsyncTask 的实现原理是基于异步消息处理机制，是一个抽象类。它适合来做耗时比较少的操作，这个类允许在没有操纵线程和 handler 的时候在 UI 线程上执行后台操作和发布结果。</p>
 <p>AsyncTask 被设计成一个围绕 Thread 和 Handler 的帮助类，但不构成一个通用的线程框架。理想情况下，AsyncTask 应该用于短操作（最多几秒钟）。如果你需要保持线程运行很长时间，强烈建议你使用其他 API ,像java.util.concurrent 包提供的 Executor、ThreadPoolExecutor 和 FutureTask 。</p>
+</blockquote>
 <p>异步任务被定义为在后台线程中运行，结果发表在 UI 线程。异步任务是由三个泛型类型，叫做 Params、Progress 和 Result，和四步叫做 onPreExecute、doInBackground、onProgressUpdate 和 onPostExecute 定义的。</p>
 <h2 id="1、AsyncTask-的使用"><a href="#1、AsyncTask-的使用" class="headerlink" title="1、AsyncTask 的使用"></a>1、AsyncTask 的使用</h2><h3 id="1-1、参数"><a href="#1-1、参数" class="headerlink" title="1.1、参数"></a>1.1、参数</h3><ol>
 <li>Params ：在执行 AsyncTask 时需要传入的参数，可用于在后台任务中使用。</li>
