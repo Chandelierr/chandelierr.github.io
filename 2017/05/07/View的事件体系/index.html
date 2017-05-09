@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="1、View基础 view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。  1.1、View 的位置参数View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。  需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是">
 <meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系/View的位置参数和父容器的关系.jpg">
-<meta property="og:updated_time" content="2017-05-09T14:04:56.921Z">
+<meta property="og:updated_time" content="2017-05-09T14:36:19.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的事件体系 | Chandelierr">
 <meta name="twitter:description" content="1、View基础 view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。  1.1、View 的位置参数View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。  需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是">
@@ -223,6 +223,20 @@ classes that you can use:
 <li>获取速度之前必须先计算速度，后面参数的单位是ms。</li>
 <li>这里的速度是指一段时间内手指所滑动的像素数，比如将时间间隔设为 1000ms 时，在1s内手指在水平方向从左到右滑过 100 像素，那么水平速度就是 100。注意速度可以是负数，当手指从右向左滑动是，水平方向速度即为负值。</li>
 </ul>
+</li>
+<li><p>当不需要使用它的时候，需要调用 clear 方法来重置并回收内存：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">velocityTracker.clear();</div><div class="line">velocityTracker.recycle();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="1-5、GestureDetector-手势检测"><a href="#1-5、GestureDetector-手势检测" class="headerlink" title="1.5、GestureDetector 手势检测"></a>1.5、GestureDetector 手势检测</h3><p>用户辅助检测用户的单击、滑动、长按、双击等行为。</p>
+<p>使用方式：</p>
+<ol>
+<li><p>创建一个 GestureDetector 对象并实现 onGestureListener 接口，根据需要我们还可以实现 onDoubleTapListener 从而能够监听双击行为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GestureDetector mGestureDetector = <span class="keyword">new</span> GestureDetector(<span class="keyword">this</span>);</div><div class="line"><span class="comment">//解决长按屏幕后无法拖动的现象</span></div><div class="line">mGestureDetector。setIsLongpressEnabled(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>接管目标 View 的 onTouchEvent 方法，在待监听 View 的 onTouchEvent 方法中添加如下实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">boolean</span> consume = mGestureDetector.onTouchEvent(event);</div><div class="line"><span class="keyword">return</span> consume;</div></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 </ol>
 
