@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      firsté›†å’Œfollowé›† | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="编译原理课上实验first集和follow集求法：First集合： First集合顾名思义就是求一个文法符号串所可能推导出的符号串的第一个终结符的集合。 First（X）就是求X所有推导出的符号串的第一个符号的集合。 求First集合可分如下几种情况: 1、单个符号的First集合：单个终结符的First集合就是它自己。 2、单个非终结符的First集合： 123X--&amp;gt;a… 产生式右部以终">
+<meta name="keywords" content="编译原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="firsté›†å’Œfollowé›† | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/18/first集和follow集/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="编译原理课上实验first集和follow集求法：First集合： First集合顾名思义就是求一个文法符号串所可能推导出的符号串的第一个终结符的集合。 First（X）就是求X所有推导出的符号串的第一个符号的集合。 求First集合可分如下几种情况: 1、单个符号的First集合：单个终结符的First集合就是它自己。 2、单个非终结符的First集合： 123X--&amp;gt;a… 产生式右部以终">
+<meta property="og:updated_time" content="2017-05-18T13:43:16.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="firsté›†å’Œfollowé›† | Chandelierr">
+<meta name="twitter:description" content="编译原理课上实验first集和follow集求法：First集合： First集合顾名思义就是求一个文法符号串所可能推导出的符号串的第一个终结符的集合。 First（X）就是求X所有推导出的符号串的第一个符号的集合。 求First集合可分如下几种情况: 1、单个符号的First集合：单个终结符的First集合就是它自己。 2、单个非终结符的First集合： 123X--&amp;gt;a… 产生式右部以终">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">firsté›†å’Œfollowé›†</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-18" class="post-meta__date date">2017-05-18</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/编译原理/">编译原理</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="编译原理课上实验"><a href="#编译原理课上实验" class="headerlink" title="编译原理课上实验"></a>编译原理课上实验</h2><h3 id="first集和follow集求法："><a href="#first集和follow集求法：" class="headerlink" title="first集和follow集求法："></a>first集和follow集求法：</h3><p><strong>First集合：</strong></p>
+<p>First集合顾名思义就是求一个文法符号串所可能推导出的符号串的第一个终结符的集合。</p>
+<p>First（X）就是求X所有推导出的符号串的第一个符号的集合。</p>
+<p><strong>求First集合可分如下几种情况:</strong></p>
+<p><strong>1、单个符号的First集合</strong>：单个终结符的First集合就是它自己。</p>
+<p><strong>2、单个非终结符的First集合：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">X--&gt;a… 产生式右部以终结符开头，根据定义，这种情况下显然可以看出a属于First(X)。</div><div class="line"></div><div class="line">X--&gt;A… 产生式右部以非终结符开头，根据定义，也可以看出First（A）属于First（X）。这是一个递归的推导。</div></pre></td></tr></table></figure>
+<p><strong>3、多个符号形成的符号串的First结合：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">X -&gt; ABC…，并且A不能推导出空串ε，显然根据定义First（ABC…）=First（A）</div><div class="line"></div><div class="line">X -&gt; ABC…，并且A可能推导出空串ε，当A不是空串的时候，显然First（A）属于First（ABC…），但当A是空串的时候，ABC…就成了BC…，此时根据B是否能推出空串来决定是否将First（B）加入First （ABC…）。这是一个递归的推导，综上所述，符号串中的第一个不能推出空串的符 号前面所有符号的First集合减去空串ε都属于First（ABC…），第一个不能推出空串的 符号的First集合也属于First（ABC…）。也就是假设A、B都可以推出空串，C不能推出空串，First（X）=(First（A）- ε) ∪ (First（B）- ε) ∪ (First（C）)。</div><div class="line"></div><div class="line">特殊的，符号串ABC...,A、B、C都可以推导出 ε ，那么把 ε 也加到First(X)中。</div><div class="line"></div><div class="line">注意：First集合中的符号一定是终结符，终结符也包括空串ε。</div></pre></td></tr></table></figure>
+<p><strong>Follow集合：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Follow集合也是顾名思义的，就是文法符号后面可能跟随的终结符的集合（不包括空 串ε）。</div><div class="line"></div><div class="line">Follow(X)就是求X后面可能跟随的符号集合。</div><div class="line"></div><div class="line">求Follow集合可分如下几种情况:</div><div class="line"></div><div class="line">终结符的Follow集合没有定义，只有非终结符才会有Follow集合。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">如果 U 是文法的开始符号，则置 # 于 Follow(U) 中。</div></pre></td></tr></table></figure>
+<p><strong>A–&gt;…Ua…</strong> 要求的Follow集合的非终结符后跟终结符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">根据定义，显然a属于Follow(U)。这种情况下，Follow(U) 和A没有任何关系，产生式左边是什么无所谓。</div></pre></td></tr></table></figure>
+<p><strong>A–&gt;…UP…</strong> 要求的Follow集合的非终结符后跟非终结符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">根据定义，显然P的第一个符号属于Follow(U)，也就是First(P)属于Follow(U)。</div></pre></td></tr></table></figure>
+<p><strong>A–&gt;…UP</strong> 要求的Follow集合的非终结符后跟非结尾的终结符， 并且结尾非终结符的First集合包含空串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这是上一种情况的一种特例，除了要按上一种情况处理，First(P)属于Follow(U) 以外还要进行分析；因为当P推导为空串时，空串不能出现在Follow集合中，所以 U 后面跟随的应该是P后面的东西，可P已经是结束的符号，此时U后面显然就是A后 面跟随的东西了。所以在这种情况下Follow(A)也属于Follow(U)。</div></pre></td></tr></table></figure>
+<p><strong>A–&gt;…U</strong> 要求的Follow集合的非终结符在产生式结尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这时候又要递归推导，U是A的结尾，所以U后面跟随的东西也就是A后面跟随的东 西。所以Follow（A）属于Follow（U）。</div></pre></td></tr></table></figure>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><em>这里我的 first集的 后面跟多个非终结符且非终结符能推导出 ε 的情况没有实现</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">firstAndFollow</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> String TSTR_FIRST = <span class="string">""</span>;</div><div class="line">	<span class="keyword">static</span> String TSTR_FOLLOW = <span class="string">""</span>;</div><div class="line">	<span class="keyword">static</span> <span class="keyword">int</span> size = <span class="number">0</span>;</div><div class="line">	<span class="keyword">static</span> String[][] preResult = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">static</span> String[][] first = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">static</span> String[][] follow = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		preResult = input();</div><div class="line">		size = preResult.length;</div><div class="line">		first = getFirst();</div><div class="line">		System.out.println(<span class="string">"first集："</span>);</div><div class="line">		<span class="keyword">for</span> (String[] strings : first) &#123;</div><div class="line">			System.out.print(<span class="string">"First("</span> + strings[<span class="number">0</span>] + <span class="string">")=&#123;"</span>);</div><div class="line">			<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; strings[<span class="number">1</span>].length() - <span class="number">1</span>; i++) &#123;</div><div class="line">				System.out.print(strings[<span class="number">1</span>].charAt(i) + <span class="string">","</span>);</div><div class="line">			&#125;</div><div class="line">			System.out.println(strings[<span class="number">1</span>].charAt(i) + <span class="string">"&#125;"</span>);</div><div class="line">		&#125;</div><div class="line">		follow = getFollow();</div><div class="line">		System.out.println(<span class="string">"follow集："</span>);</div><div class="line">		<span class="keyword">for</span> (String[] strings : follow) &#123;</div><div class="line">			System.out.print(<span class="string">"Follow("</span> + strings[<span class="number">0</span>] + <span class="string">")=&#123;"</span>);</div><div class="line">			<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span> (strings[<span class="number">1</span>].length() == <span class="number">1</span>) &#123;</div><div class="line">				System.out.println(strings[<span class="number">1</span>].charAt(i) + <span class="string">"&#125;"</span>);</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span> (strings[<span class="number">1</span>].length() &gt; <span class="number">1</span>) &#123;</div><div class="line">				<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; strings[<span class="number">1</span>].length() - <span class="number">1</span>; i++) &#123;</div><div class="line">					System.out.print(strings[<span class="number">1</span>].charAt(i) + <span class="string">","</span>);</div><div class="line">				&#125;</div><div class="line">				System.out.println(strings[<span class="number">1</span>].charAt(i) + <span class="string">"&#125;"</span>);</div><div class="line">			&#125;<span class="keyword">else</span> &#123;</div><div class="line">				System.out.println(<span class="string">"&#125;"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String[][] getFirst() &#123;</div><div class="line">		String[][] first = <span class="keyword">new</span> String[size][<span class="number">2</span>];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">			first[i][<span class="number">0</span>] = preResult[i][<span class="number">0</span>];</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				getF(preResult[i][<span class="number">0</span>], preResult[i][<span class="number">1</span>]);</div><div class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">				System.out.println(<span class="string">"存在递归"</span>);</div><div class="line">			&#125;</div><div class="line">			first[i][<span class="number">1</span>] = TSTR_FIRST;</div><div class="line">			TSTR_FIRST = <span class="string">""</span>;</div><div class="line">		<span class="comment">//	System.out.println("---------------------------------------");</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> first;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getF</span><span class="params">(String str1, String str2)</span> </span>&#123;</div><div class="line">		String temp = <span class="string">""</span>;</div><div class="line">		<span class="keyword">if</span> (str2.contains(<span class="string">"|"</span>)) &#123;</div><div class="line">			String[] strtemp;</div><div class="line">			strtemp = str2.split(<span class="string">"\\|"</span>);</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strtemp.length; i++) &#123;</div><div class="line">			<span class="comment">//	System.out.println("getF:" + str1 + "," + strtemp[i]);</span></div><div class="line">				getF(str1, strtemp[i]);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (<span class="string">'A'</span> &lt;= str2.charAt(<span class="number">0</span>) &amp;&amp; str2.charAt(<span class="number">0</span>) &lt;= <span class="string">'Z'</span>) &#123;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">					<span class="keyword">if</span> (preResult[i][<span class="number">0</span>].equals(String.valueOf(str2.charAt(<span class="number">0</span>)))) &#123;</div><div class="line">					<span class="comment">//	System.out.println(preResult[i][0] + " = "+ str2.charAt(0));</span></div><div class="line">						<span class="keyword">if</span> (!str1.equals(String.valueOf(str2.charAt(<span class="number">0</span>))))</div><div class="line">					<span class="comment">//		System.out.println(str1 + " ！= " + str2.charAt(0));</span></div><div class="line">							getF(preResult[i][<span class="number">0</span>], preResult[i][<span class="number">1</span>]);</div><div class="line">					<span class="comment">//		System.out.println("i:" + i);</span></div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				temp = String.valueOf(str2.charAt(<span class="number">0</span>));</div><div class="line">				<span class="keyword">if</span> (!TSTR_FIRST.contains(temp))</div><div class="line">					TSTR_FIRST = TSTR_FIRST.concat(String.valueOf(str2.charAt(<span class="number">0</span>)));</div><div class="line">			<span class="comment">//	System.out.println("tstrFirst:" + TSTR_FIRST);</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> temp;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String[][] getFollow() &#123;</div><div class="line">		String[][] Follow = <span class="keyword">new</span> String[size][<span class="number">2</span>];</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">			Follow[i][<span class="number">0</span>] = preResult[i][<span class="number">0</span>];</div><div class="line">			getFo(preResult[i][<span class="number">0</span>]);</div><div class="line">			Follow[i][<span class="number">1</span>] = TSTR_FOLLOW;</div><div class="line">			TSTR_FOLLOW = <span class="string">""</span>;</div><div class="line">			<span class="comment">//System.out.println("-------------------------------------------------" + Follow[i][1]);</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">			StringBuffer sb = <span class="keyword">new</span> StringBuffer(Follow[i][<span class="number">1</span>]);</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; sb.length(); j++) &#123;</div><div class="line">				String temp = sb.toString();</div><div class="line">				<span class="keyword">if</span> (sb.charAt(j) == <span class="string">'ε'</span>) &#123;</div><div class="line">					sb.deleteCharAt(j);</div><div class="line">					temp = sb.toString();</div><div class="line">				&#125;</div><div class="line">				Follow[i][<span class="number">1</span>] = temp;</div><div class="line">				<span class="comment">//System.out.println("Follow:" + Follow[i][1]);</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> Follow;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 递归求follow</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getFo</span><span class="params">(String str3)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (str3.equals(preResult[<span class="number">0</span>][<span class="number">0</span>])) &#123;</div><div class="line">			<span class="comment">//System.out.println("开始符号加 # ");</span></div><div class="line">			<span class="keyword">if</span> (!TSTR_FOLLOW.contains(<span class="string">"#"</span>))</div><div class="line">				TSTR_FOLLOW = TSTR_FOLLOW.concat(<span class="string">"#"</span>);</div><div class="line">			<span class="comment">//System.out.println("现在的follow：" + TSTR_FOLLOW);</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">			<span class="keyword">if</span> (preResult[i][<span class="number">1</span>].contains(str3)) &#123;</div><div class="line">				<span class="keyword">char</span>[] ch = preResult[i][<span class="number">1</span>].toCharArray();</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; ch.length; j++) &#123;</div><div class="line">					<span class="keyword">if</span> (str3.equals(String.valueOf(ch[j]))) &#123;<span class="comment">/*&amp;&amp; ch[j + 1] != '|'*/</span></div><div class="line">						<span class="keyword">if</span> (j + <span class="number">1</span> &lt; ch.length &amp;&amp; ch[j + <span class="number">1</span>] != <span class="string">'|'</span>) &#123;</div><div class="line">							<span class="keyword">if</span> (<span class="string">'A'</span> &lt;= ch[j + <span class="number">1</span>] &amp;&amp; ch[j + <span class="number">1</span>] &lt;= <span class="string">'Z'</span>) &#123;<span class="comment">//下一个是非终结符</span></div><div class="line">								<span class="keyword">for</span>(<span class="keyword">int</span> k =<span class="number">0</span>;k &lt; size; k++)&#123;</div><div class="line">									<span class="keyword">if</span> (first[k][<span class="number">0</span>].equals(String.valueOf(ch[j + <span class="number">1</span>]))) &#123;</div><div class="line">										<span class="keyword">if</span> (first[k][<span class="number">1</span>].contains(<span class="string">"ε"</span>)) &#123;</div><div class="line">											<span class="keyword">if</span> (first[k][<span class="number">0</span>].equals(str3))  <span class="keyword">break</span>;</div><div class="line">											String strr = getFo(first[k][<span class="number">0</span>]);</div><div class="line">											<span class="keyword">if</span> (!TSTR_FOLLOW.contains(strr))</div><div class="line">												TSTR_FOLLOW = TSTR_FOLLOW.concat(String.valueOf(strr));</div><div class="line">										&#125;</div><div class="line">									&#125;</div><div class="line">								&#125;</div><div class="line">								<span class="comment">//System.out.println(ch[j + 1] + " 是非终结符，找first " + ch[j + 1]);</span></div><div class="line">								<span class="comment">// 把后面的first集加到该follow集中</span></div><div class="line">								<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; size; k++) &#123;</div><div class="line">									<span class="keyword">if</span> (first[k][<span class="number">0</span>].equals(String.valueOf(ch[j + <span class="number">1</span>]))) &#123;</div><div class="line">										<span class="keyword">if</span> (!TSTR_FOLLOW.contains(first[k][<span class="number">1</span>]))</div><div class="line">											TSTR_FOLLOW = TSTR_FOLLOW.concat(first[k][<span class="number">1</span>]);</div><div class="line">										<span class="comment">//System.out.println("把first " + ch[j + 1] + "加进去，follow现在是：" + TSTR_FOLLOW);</span></div><div class="line">										<span class="keyword">break</span>;</div><div class="line">									&#125;</div><div class="line">								&#125;</div><div class="line">							&#125;</div><div class="line">							<span class="keyword">else</span> <span class="keyword">if</span> (isT(String.valueOf(ch[j + <span class="number">1</span>]))) &#123;<span class="comment">//下一个是终结符</span></div><div class="line">								<span class="keyword">if</span> (!TSTR_FOLLOW.contains(String.valueOf(ch[j+<span class="number">1</span>])))</div><div class="line">								&#123;</div><div class="line">										TSTR_FOLLOW = TSTR_FOLLOW.concat(String.valueOf(ch[j + <span class="number">1</span>]));</div><div class="line">								&#125;</div><div class="line">								<span class="comment">//System.out.println("现在的follow：" + TSTR_FOLLOW);</span></div><div class="line">							&#125;</div><div class="line">						&#125; <span class="keyword">else</span> &#123;</div><div class="line">							<span class="keyword">if</span> (preResult[i][<span class="number">0</span>].equals(str3))  <span class="keyword">break</span>;</div><div class="line">							String strr = getFo(String.valueOf(preResult[i][<span class="number">0</span>]));</div><div class="line">							<span class="keyword">if</span> (!TSTR_FOLLOW.contains(strr))</div><div class="line">								TSTR_FOLLOW = TSTR_FOLLOW.concat(String.valueOf(strr));</div><div class="line">						&#125;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//System.out.println("我要return：" + TSTR_FOLLOW);</span></div><div class="line">		<span class="keyword">return</span> TSTR_FOLLOW;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isT</span><span class="params">(String tmp)</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">			<span class="keyword">if</span> (tmp.equals(preResult[i][<span class="number">0</span>]))  <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String[][] input()&#123;</div><div class="line">		Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer();</div><div class="line">		String temp = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span>(!(temp = in.next()).equals(<span class="string">"end"</span>))&#123;</div><div class="line">			sb.append(temp);</div><div class="line">		&#125;</div><div class="line">		in.close();</div><div class="line">		String[] wenfas = sb.toString().split(<span class="string">";"</span>);</div><div class="line">		String[][] chaifen = <span class="keyword">new</span> String[wenfas.length][<span class="number">2</span>];</div><div class="line">		<span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (String string : wenfas) &#123;</div><div class="line">			chaifen[tmp] = string.split(<span class="string">"-&gt;"</span>);</div><div class="line">			tmp++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">char</span> xx = <span class="string">'A'</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; chaifen.length; m++)&#123;</div><div class="line">			<span class="keyword">if</span> (chaifen[m][<span class="number">0</span>].contains(<span class="string">"’"</span>)) &#123;</div><div class="line">				String temp1 = chaifen[m][<span class="number">0</span>];</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; chaifen.length; n++) &#123;</div><div class="line">					<span class="keyword">if</span> (chaifen[n][<span class="number">1</span>].contains(temp1)) &#123;</div><div class="line">						chaifen[n][<span class="number">1</span>] = chaifen[n][<span class="number">1</span>].replaceAll(temp1, xx+<span class="string">""</span>);</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">if</span> (chaifen[n][<span class="number">0</span>].equals(temp1)) &#123;</div><div class="line">						chaifen[n][<span class="number">0</span>] = xx + <span class="string">""</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				xx++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> chaifen;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">E-&gt;TE’;</div><div class="line">E’-&gt;+TE’|ε;</div><div class="line">T-&gt;FT’;</div><div class="line">T’-&gt;*FT’|ε;</div><div class="line">F-&gt;(E)|i;</div><div class="line">end</div></pre></td></tr></table></figure>
+<p>测试数据的输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">first集：</div><div class="line">First(E)=&#123;(,i&#125;</div><div class="line">First(A)=&#123;+,ε&#125;</div><div class="line">First(T)=&#123;(,i&#125;</div><div class="line">First(B)=&#123;*,ε&#125;</div><div class="line">First(F)=&#123;(,i&#125;</div><div class="line">follow集：</div><div class="line">Follow(E)=&#123;#,)&#125;</div><div class="line">Follow(A)=&#123;#,)&#125;</div><div class="line">Follow(T)=&#123;#,),+&#125;</div><div class="line">Follow(B)=&#123;#,),+&#125;</div><div class="line">Follow(F)=&#123;#,),+,*&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>蜜汁缩进很难受，需要改进。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
