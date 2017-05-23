@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      View的事件体系3_弹性滑动 | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="3、弹性滑动View 的滑动如果过于生硬的话，用户体验会很差劲，所以需要实现渐进式滑动。这种滑动的基本思想是将一次大的滑动拆分成若干次小的滑动。以下是几种实现方法。 3.1、使用Scroller这个在View的事件体系1里面有，现在看它为什么能够实现view的弹性滑动。 12345678910111213141516Scroller scroller = new Scroller(mContext">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="View的事件体系3_弹性滑动 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/22/View的事件体系3-弹性滑动/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="3、弹性滑动View 的滑动如果过于生硬的话，用户体验会很差劲，所以需要实现渐进式滑动。这种滑动的基本思想是将一次大的滑动拆分成若干次小的滑动。以下是几种实现方法。 3.1、使用Scroller这个在View的事件体系1里面有，现在看它为什么能够实现view的弹性滑动。 12345678910111213141516Scroller scroller = new Scroller(mContext">
+<meta property="og:updated_time" content="2017-05-22T14:32:48.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="View的事件体系3_弹性滑动 | Chandelierr">
+<meta name="twitter:description" content="3、弹性滑动View 的滑动如果过于生硬的话，用户体验会很差劲，所以需要实现渐进式滑动。这种滑动的基本思想是将一次大的滑动拆分成若干次小的滑动。以下是几种实现方法。 3.1、使用Scroller这个在View的事件体系1里面有，现在看它为什么能够实现view的弹性滑动。 12345678910111213141516Scroller scroller = new Scroller(mContext">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">View的事件体系3_弹性滑动</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-22" class="post-meta__date date">2017-05-22</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="3、弹性滑动"><a href="#3、弹性滑动" class="headerlink" title="3、弹性滑动"></a>3、弹性滑动</h2><p>View 的滑动如果过于生硬的话，用户体验会很差劲，所以需要实现渐进式滑动。这种滑动的基本思想是将一次大的滑动拆分成若干次小的滑动。以下是几种实现方法。</p>
+<h3 id="3-1、使用Scroller"><a href="#3-1、使用Scroller" class="headerlink" title="3.1、使用Scroller"></a>3.1、使用Scroller</h3><p>这个在View的事件体系1里面有，现在看它为什么能够实现view的弹性滑动。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Scroller scroller = <span class="keyword">new</span> Scroller(mContext);</div><div class="line"><span class="comment">//缓慢滚动到指定位置</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">smoothScrollTo</span><span class="params">(<span class="keyword">int</span> destX, <span class="keyword">int</span> destY)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> scrollX = getScroller();</div><div class="line">  <span class="keyword">int</span> deltaX = destX - scrollX;</div><div class="line">  <span class="comment">//1000ms内滑向destX，效果就是慢慢滑动</span></div><div class="line">  mScroller.startScroll(scrollX, <span class="number">0</span>, deltaX, <span class="number">0</span>, <span class="number">1000</span>);</div><div class="line">  invalidate();</div><div class="line">&#125;</div><div class="line"><span class="meta">@override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">if</span> (mScroller.computeScrollOffset())&#123;</div><div class="line">    scrollTo(mScrollrt.getCurrX(),mScroller.getCurrY());</div><div class="line">    postInvalidate();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是 Scroller 典型的使用方法，它的工作原理是：当我们构造一个 Scroller 对象并且调用它的 <code>startScroll</code> 方法时,Scroller 内部其实什么也没做，它只是保存了我们传递的几个参数，这几个参数从 <code>startScroll</code>的原型上就可以看出来，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startScroll</span><span class="params">(<span class="keyword">int</span> startX, <span class="keyword">int</span> startY, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy, <span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">        mMode = SCROLL_MODE;</div><div class="line">        mFinished = <span class="keyword">false</span>;</div><div class="line">        mDuration = duration;</div><div class="line">        mStartTime = AnimationUtils.currentAnimationTimeMillis();</div><div class="line">        mStartX = startX;</div><div class="line">        mStartY = startY;</div><div class="line">        mFinalX = startX + dx;</div><div class="line">        mFinalY = startY + dy;</div><div class="line">        mDeltaX = dx;</div><div class="line">        mDeltaY = dy;</div><div class="line">        mDurationReciprocal = <span class="number">1.0f</span> / (<span class="keyword">float</span>) mDuration;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>startX 和 startY 表示的是滑动的起点。</li>
+<li>dx 和 dy 表示的是滑动的距离。</li>
+<li>duration 表示的是滑动时间。</li>
+</ul>
+<p>到此为止，都没有看到 Scroller 是如何实现弹性滑动的，其实是在 <code>startScroll()</code> 方法下面的 <code>invalidate()</code>方法。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
