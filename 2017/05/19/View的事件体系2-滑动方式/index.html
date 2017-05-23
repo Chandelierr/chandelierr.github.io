@@ -7,7 +7,7 @@
     
 
     <title>
-      View的事件体系2 | Chandelierr 
+      View的事件体系2-滑动方式 | Chandelierr 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,17 +19,17 @@
     <meta name="description" content="2、View 的滑动通过三种方式可以实现 View 的滑动：  通过 View 本身提供的 scrollTo/scrollBy 方法来实现滑动; 通过动画给 View 施加平移效果来实现滑动; 通过改变 View 的 LayoutParams 使得 View 重新布局从而实现滑动。  2.1、使用 scrollTo/scrollBy scrollTo 和 scrollBy 只能改变 View 内容">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="View的事件体系2 | Chandelierr">
-<meta property="og:url" content="http://chandelierr.github.io/2017/05/19/View的事件体系2/index.html">
+<meta property="og:title" content="View的事件体系2-滑动方式 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/19/View的事件体系2-滑动方式/index.html">
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="2、View 的滑动通过三种方式可以实现 View 的滑动：  通过 View 本身提供的 scrollTo/scrollBy 方法来实现滑动; 通过动画给 View 施加平移效果来实现滑动; 通过改变 View 的 LayoutParams 使得 View 重新布局从而实现滑动。  2.1、使用 scrollTo/scrollBy scrollTo 和 scrollBy 只能改变 View 内容">
-<meta property="og:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2/mScrollX和mScrollY的变化规律.png">
-<meta property="og:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2/view_slide.gif">
-<meta property="og:updated_time" content="2017-05-22T12:21:29.113Z">
+<meta property="og:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2-滑动方式/mScrollX和mScrollY的变化规律.png">
+<meta property="og:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2-滑动方式/view_slide.gif">
+<meta property="og:updated_time" content="2017-05-23T13:20:46.437Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="View的事件体系2 | Chandelierr">
+<meta name="twitter:title" content="View的事件体系2-滑动方式 | Chandelierr">
 <meta name="twitter:description" content="2、View 的滑动通过三种方式可以实现 View 的滑动：  通过 View 本身提供的 scrollTo/scrollBy 方法来实现滑动; 通过动画给 View 施加平移效果来实现滑动; 通过改变 View 的 LayoutParams 使得 View 重新布局从而实现滑动。  2.1、使用 scrollTo/scrollBy scrollTo 和 scrollBy 只能改变 View 内容">
-<meta name="twitter:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2/mScrollX和mScrollY的变化规律.png">
+<meta name="twitter:image" content="http://chandelierr.github.io/2017/05/19/View的事件体系2-滑动方式/mScrollX和mScrollY的变化规律.png">
     
     
     
@@ -153,7 +153,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">View的事件体系2</h1>
+    <h1 class="post-title">View的事件体系2-滑动方式</h1>
 
     
 
@@ -196,7 +196,7 @@ classes that you can use:
 <li>mScrollY :可以通过 <code>getScrollY</code>方法得到。在滑动过程中 mScrollX 的值总是等于 <strong>View上边缘</strong> 和 <strong>View 内容上边缘</strong>在竖直方向的距离。</li>
 <li>这两个属性的单位是像素。</li>
 </ul>
-<p><img src="/2017/05/19/View的事件体系2/mScrollX和mScrollY的变化规律.png" alt="mScrollX和mScrollY的变化规律"></p>
+<p><img src="/2017/05/19/View的事件体系2-滑动方式/mScrollX和mScrollY的变化规律.png" alt="mScrollX和mScrollY的变化规律"></p>
 <h3 id="2-2、使用动画"><a href="#2-2、使用动画" class="headerlink" title="2.2、使用动画"></a>2.2、使用动画</h3><blockquote>
 <p>让 View 进行平移，主要是操作 View 的 translationX 和 translationY 属性，既可以采用传统的 View 动画，也可以采用属性动画。</p>
 </blockquote>
@@ -214,7 +214,7 @@ classes that you can use:
 <li>动画：操作简单，主要适用于没有交互的View 和 实现复杂的动画效果；</li>
 <li>改变布局参数：操作稍微复杂，适用于有交互的 View。</li>
 </ul>
-<h3 id="2-5、实现跟手滑动的效果"><a href="#2-5、实现跟手滑动的效果" class="headerlink" title="2.5、实现跟手滑动的效果"></a>2.5、实现跟手滑动的效果</h3><p><img src="/2017/05/19/View的事件体系2/view_slide.gif" alt="view_slide"></p>
+<h3 id="2-5、实现跟手滑动的效果"><a href="#2-5、实现跟手滑动的效果" class="headerlink" title="2.5、实现跟手滑动的效果"></a>2.5、实现跟手滑动的效果</h3><p><img src="/2017/05/19/View的事件体系2-滑动方式/view_slide.gif" alt="view_slide"></p>
 <p>选择动画的方式</p>
 <p>新建一个java文件,继承ImageView，重写 <code>onTouchEvent()</code>方法。</p>
 <p>注意，这里用到ViewHelper，需要导入 <code>nineoldandroids.jar</code>,官网下载，放到libs下，add as library就可以用了。</p>

@@ -7,7 +7,7 @@
     
 
     <title>
-      View的事件体系1 | Chandelierr 
+      View的事件体系1-基础 | Chandelierr 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,19 +17,20 @@
     
 
     <meta name="description" content="1、View基础 view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。  1.1、View 的位置参数View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。  需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="View的事件体系1 | Chandelierr">
-<meta property="og:url" content="http://chandelierr.github.io/2017/05/07/View的事件体系1/index.html">
+<meta property="og:title" content="View的事件体系1-基础 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/05/07/View的事件体系1-基础/index.html">
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="1、View基础 view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。  1.1、View 的位置参数View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。  需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是">
-<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1/View的位置参数和父容器的关系.jpg">
-<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1/onGestureListener%20和%20onDoubleTapListener%20中的方法1.png">
-<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1/onGestureListener%20和%20onDoubleTapListener%20中的方法2.png">
-<meta property="og:updated_time" content="2017-05-23T13:17:31.175Z">
+<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1-基础/View的位置参数和父容器的关系.jpg">
+<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1-基础/onGestureListener%20和%20onDoubleTapListener%20中的方法1.png">
+<meta property="og:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1-基础/onGestureListener%20和%20onDoubleTapListener%20中的方法2.png">
+<meta property="og:updated_time" content="2017-05-23T13:23:15.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="View的事件体系1 | Chandelierr">
+<meta name="twitter:title" content="View的事件体系1-基础 | Chandelierr">
 <meta name="twitter:description" content="1、View基础 view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。  1.1、View 的位置参数View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。  需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是">
-<meta name="twitter:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1/View的位置参数和父容器的关系.jpg">
+<meta name="twitter:image" content="http://chandelierr.github.io/2017/05/07/View的事件体系1-基础/View的位置参数和父容器的关系.jpg">
     
     
     
@@ -153,7 +154,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">View的事件体系1</h1>
+    <h1 class="post-title">View的事件体系1-基础</h1>
 
     
 
@@ -164,6 +165,11 @@ classes that you can use:
 
           
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
           
 
       </span>
@@ -178,7 +184,7 @@ classes that you can use:
 <p>view 是 android 中所有控件的基类 ，view 本身既可以是单个控件也可以是由多个控件组成的一组控件，通过这种关系就形成了 View 树的结构。</p>
 </blockquote>
 <h3 id="1-1、View-的位置参数"><a href="#1-1、View-的位置参数" class="headerlink" title="1.1、View 的位置参数"></a>1.1、View 的位置参数</h3><p>View 的位置主要由它的四个顶点来决定，分别相对于 View 的四个属性： top、left、right、bottom。</p>
-<p><img src="/2017/05/07/View的事件体系1/View的位置参数和父容器的关系.jpg" alt="View的位置参数和父容器的关系"></p>
+<p><img src="/2017/05/07/View的事件体系1-基础/View的位置参数和父容器的关系.jpg" alt="View的位置参数和父容器的关系"></p>
 <p>需要注意的是，这些坐标都是相对于 View 的父容器来说的，因此它是一种相对坐标。</p>
 <p>如何得到这四个参数呢？在 View 的源码中它们对应于 mLeft、mRight、mTop、mBottom 这四个成员变量，获取方式如下：</p>
 <p>​    <code>Left = getLeft();</code></p>
@@ -234,8 +240,8 @@ classes that you can use:
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">boolean</span> consume = mGestureDetector.onTouchEvent(event);</div><div class="line"><span class="keyword">return</span> consume;</div></pre></td></tr></table></figure>
 </li>
 <li><p>现在就可以有选择地实现 onGestureListener 和 onDoubleTapListener 中的方法了</p>
-<p><img src="/2017/05/07/View的事件体系1/onGestureListener 和 onDoubleTapListener 中的方法1.png" alt="onGestureListener 和 onDoubleTapListener 中的方法1"></p>
-<p><img src="/2017/05/07/View的事件体系1/onGestureListener 和 onDoubleTapListener 中的方法2.png" alt="onGestureListener 和 onDoubleTapListener 中的方法2">实际开发中，可以不使用 GestureDetector ，完全可以自己在 View 的 onTouchEvent 方法中实现所需的监听。</p>
+<p><img src="/2017/05/07/View的事件体系1-基础/onGestureListener 和 onDoubleTapListener 中的方法1.png" alt="onGestureListener 和 onDoubleTapListener 中的方法1"></p>
+<p><img src="/2017/05/07/View的事件体系1-基础/onGestureListener 和 onDoubleTapListener 中的方法2.png" alt="onGestureListener 和 onDoubleTapListener 中的方法2">实际开发中，可以不使用 GestureDetector ，完全可以自己在 View 的 onTouchEvent 方法中实现所需的监听。</p>
 <h3 id="1-6、Scroller-弹性滑动对象"><a href="#1-6、Scroller-弹性滑动对象" class="headerlink" title="1.6、Scroller 弹性滑动对象"></a>1.6、Scroller 弹性滑动对象</h3><p>用于实现 View 的弹性滑动，当时用 View 的 scrollTo/scrollBy 方法来进行滑动时，其过程是瞬间完成的，没有过渡效果。这个时候既可以使用 Scroller 来实现有过渡效果的滑动。Scroller 本身无法让 View 弹性滑动，它需要和 View 的 computeScroll 方法配合使用才能完成这个功能。如何使用 Scroller：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Scroller scroller = <span class="keyword">new</span> Scroller(mContext);</div><div class="line"></div><div class="line"><span class="comment">//缓慢滚动到指定位置</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">smoothScrollTo</span><span class="params">(<span class="keyword">int</span> destX, <span class="keyword">int</span> destY)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> scrollX = getScrollX();</div><div class="line">  <span class="keyword">int</span> delta = destX - scrollX;</div><div class="line">  <span class="comment">//1000ms内滑向destX，效果就是慢慢滑动</span></div><div class="line">  mScroller.startScroller(scrollX, <span class="number">0</span>, delta, <span class="number">0</span>, <span class="number">1000</span>);</div><div class="line">  invalidate();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(mScroller.computeScrollOffset())&#123;</div><div class="line">    scrollTo(mScroller.getCurrX(), mScroller.getCurrY());</div><div class="line">    postInvalidate();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>​</p>
