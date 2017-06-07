@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Gif合成 | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="最近脑子一抽看了一个视频，说是合成Gif，就想玩一玩。事实证明就是脑抽。  上图  1、找开源的Gif分析的文件。就是上面的结构里的 gif 包下面的四个类。os：根本就没有用到下面两个类。 这是我找的，传到csdn上了，http://download.csdn.net/detail/chandelierr/9862589 2、上代码这是跟着动脑学院的一个视频敲的。存在几个问题  播放的时候就自">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gif合成 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/06/06/Gif合成/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="最近脑子一抽看了一个视频，说是合成Gif，就想玩一玩。事实证明就是脑抽。  上图  1、找开源的Gif分析的文件。就是上面的结构里的 gif 包下面的四个类。os：根本就没有用到下面两个类。 这是我找的，传到csdn上了，http://download.csdn.net/detail/chandelierr/9862589 2、上代码这是跟着动脑学院的一个视频敲的。存在几个问题  播放的时候就自">
+<meta property="og:image" content="http://chandelierr.github.io/2017/06/06/Gif合成/gif工程结构.png">
+<meta property="og:updated_time" content="2017-06-07T09:38:25.412Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gif合成 | Chandelierr">
+<meta name="twitter:description" content="最近脑子一抽看了一个视频，说是合成Gif，就想玩一玩。事实证明就是脑抽。  上图  1、找开源的Gif分析的文件。就是上面的结构里的 gif 包下面的四个类。os：根本就没有用到下面两个类。 这是我找的，传到csdn上了，http://download.csdn.net/detail/chandelierr/9862589 2、上代码这是跟着动脑学院的一个视频敲的。存在几个问题  播放的时候就自">
+<meta name="twitter:image" content="http://chandelierr.github.io/2017/06/06/Gif合成/gif工程结构.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Gif合成</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-06-06" class="post-meta__date date">2017-06-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <blockquote>
+<p>最近脑子一抽看了一个视频，说是合成Gif，就想玩一玩。事实证明就是脑抽。</p>
+</blockquote>
+<p>上图</p>
+<p><img src="/2017/06/06/Gif合成/gif工程结构.png" alt="gif工程结构"></p>
+<h3 id="1、找开源的Gif分析的文件。"><a href="#1、找开源的Gif分析的文件。" class="headerlink" title="1、找开源的Gif分析的文件。"></a>1、找开源的Gif分析的文件。</h3><p>就是上面的结构里的 gif 包下面的四个类。os：根本就没有用到下面两个类。</p>
+<p>这是我找的，传到csdn上了，<a href="http://download.csdn.net/detail/chandelierr/9862589" target="_blank" rel="external">http://download.csdn.net/detail/chandelierr/9862589</a></p>
+<h3 id="2、上代码"><a href="#2、上代码" class="headerlink" title="2、上代码"></a>2、上代码</h3><p>这是跟着动脑学院的一个视频敲的。存在几个问题</p>
+<ol>
+<li><p>播放的时候就自己保存了，所以仿佛保存按钮做不了什么。</p>
+</li>
+<li><p>有一个方法<code>GifHelper.getGif()</code>,GitHelper代码里没有我自己加上了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 解码GIF图片</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> is</div><div class="line"> * <span class="doctag">@return</span></div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> GifFrame[] getGif(InputStream is) &#123;</div><div class="line">	GifHelper gifHelper = <span class="keyword">new</span> GifHelper();</div><div class="line">	<span class="keyword">if</span> (GifHelper.STATUS_OK == gifHelper.read(is)) &#123;</div><div class="line">		<span class="keyword">return</span> gifHelper.getFrames();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这代码那个老师没调出来，然后说了将近一个小时的广告，很尴尬。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.chandelier.gitmaker;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span>, <span class="title">TextWatcher</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//这里随便找了个路径</span></div><div class="line">    File dest = <span class="keyword">new</span> File(<span class="string">"/storage/emulated/0/Tencent/TIMfile_recv/"</span>,<span class="string">"dest"</span>+Math.random()+<span class="string">".gif"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MainActivity"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SELECT_IMAGE = <span class="number">1</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PLAY = <span class="number">2</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAKEGIFANDPLAY = <span class="number">3</span>;</div><div class="line"></div><div class="line">    String imagePath;</div><div class="line">    GifHelper.GifFrame[] frames;</div><div class="line">    GifHelper.GifFrame[] copyFrames;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button select;</div><div class="line">    <span class="keyword">private</span> Button save;</div><div class="line">    <span class="keyword">private</span> EditText input;</div><div class="line">    <span class="keyword">private</span> ImageView gif_loc;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> playThread pT ;</div><div class="line"></div><div class="line">  <span class="comment">//用于在主线程中播放</span></div><div class="line">    Handler handler = <span class="keyword">new</span> Handler()&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            <span class="keyword">switch</span> (msg.what)&#123;</div><div class="line">                <span class="keyword">case</span> PLAY:</div><div class="line">                    Bitmap bitmap = (Bitmap)msg.obj;</div><div class="line">                    gif_loc.setImageBitmap(bitmap);</div><div class="line">                    <span class="keyword">int</span> time = msg.arg1;</div><div class="line">                    handler.postDelayed(pT,time);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> MAKEGIFANDPLAY:</div><div class="line"></div><div class="line">                    <span class="keyword">if</span> (pT != <span class="keyword">null</span>)&#123;</div><div class="line">                        handler.removeCallbacks(pT);</div><div class="line">                    &#125;</div><div class="line">                    pT = <span class="keyword">new</span> playThread(copyFrames);</div><div class="line">                    pT.start();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        select = (Button)findViewById(R.id.select);</div><div class="line">        save = (Button)findViewById(R.id.save);</div><div class="line">        input = (EditText)findViewById(R.id.input);</div><div class="line">        gif_loc = (ImageView)findViewById(R.id.gif_loc);</div><div class="line"></div><div class="line">        select.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        save.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        input.addTextChangedListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="comment">//复制、绘画和保存gif</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createGif</span><span class="params">()</span></span>&#123;</div><div class="line">        ByteArrayOutputStream outputStream = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">        AnimatedGifEncoder animatedGifEncoder = <span class="keyword">new</span> AnimatedGifEncoder();</div><div class="line">        animatedGifEncoder.start(outputStream);</div><div class="line">        animatedGifEncoder.setRepeat(<span class="number">0</span>);</div><div class="line">        animatedGifEncoder.setDelay(<span class="number">0</span>);</div><div class="line">        <span class="keyword">for</span> (GifHelper.GifFrame frame:frames)&#123;</div><div class="line">            Bitmap bitmap = frame.image;</div><div class="line">            Bitmap copybitmap = bitmap.copy(Bitmap.Config.RGB_565,<span class="keyword">true</span>);</div><div class="line">            Canvas canvas = <span class="keyword">new</span> Canvas(copybitmap);</div><div class="line">            Paint paint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">            paint.setTextSize(<span class="number">20</span>);</div><div class="line">            paint.setStyle(Paint.Style.FILL);</div><div class="line">            paint.setTypeface(Typeface.DEFAULT_BOLD);</div><div class="line">            Rect rect = <span class="keyword">new</span> Rect();</div><div class="line">            String content = TextUtils.isEmpty(input.getText().toString())?<span class="string">"动次大次"</span>:input.getText().toString();</div><div class="line">            paint.getTextBounds(content,<span class="number">0</span>,content.length(),rect);</div><div class="line">            canvas.drawText(content,copybitmap.getWidth()/<span class="number">2</span>-rect.width()/<span class="number">2</span>,copybitmap.getHeight()*<span class="number">0.2f</span>,paint);</div><div class="line">            animatedGifEncoder.addFrame(copybitmap);</div><div class="line">            animatedGifEncoder.setDelay(frame.delay);</div><div class="line">        &#125;</div><div class="line">        animatedGifEncoder.finish();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(dest);</div><div class="line">            outputStream.writeTo(fos);</div><div class="line">            outputStream.flush();</div><div class="line">            fos.flush();</div><div class="line">            outputStream.close();</div><div class="line">            fos.close();</div><div class="line">            copyFrames = GifHelper.getGif(<span class="keyword">new</span> FileInputStream(dest));</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"Gif已经生成。保存路径：\n"</span> + dest.getAbsolutePath(),Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (v.getId() == select.getId())&#123;</div><div class="line">            Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);</div><div class="line">            startActivityForResult(intent,SELECT_IMAGE);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (v.getId() == save.getId())&#123;</div><div class="line">            <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    createGif();</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="comment">//将 gif 加载进来</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line">        <span class="keyword">if</span> (requestCode == SELECT_IMAGE &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; data != <span class="keyword">null</span>)&#123;</div><div class="line">            Uri selectedImage = data.getData();</div><div class="line">            String[] filePathColumns = &#123;MediaStore.Images.Media.DATA&#125;;</div><div class="line">            Cursor c = getContentResolver().query(selectedImage, filePathColumns, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">            c.moveToFirst();</div><div class="line">            <span class="keyword">int</span> columnIndex = c.getColumnIndex(filePathColumns[<span class="number">0</span>]);</div><div class="line">            imagePath = c.getString(columnIndex);</div><div class="line"></div><div class="line">            showImage(imagePath);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                frames = GifHelper.getGif(<span class="keyword">new</span> FileInputStream(imagePath));</div><div class="line">            &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            c.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showImage</span><span class="params">(String imagePath)</span></span>&#123;</div><div class="line">        Bitmap bm = BitmapFactory.decodeFile(imagePath);</div><div class="line">        gif_loc.setImageBitmap(bm);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> Thread()&#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                createGif();</div><div class="line">                handler.sendEmptyMessage(MAKEGIFANDPLAY);</div><div class="line">            &#125;</div><div class="line">        &#125;.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">playThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">        GifHelper.GifFrame[] frames;</div><div class="line">        <span class="keyword">int</span> frameLength = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">playThread</span><span class="params">(GifHelper.GifFrame[] frames)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.frames = frames;</div><div class="line">            frameLength = frames.length;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (frames == <span class="keyword">null</span> || frames.length == <span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            <span class="keyword">if</span> (!frames[i].image.isRecycled())&#123;</div><div class="line">                Bitmap copy = frames[i].image.copy(Bitmap.Config.RGB_565,<span class="keyword">true</span>);</div><div class="line">                Message msg = <span class="keyword">new</span> Message();</div><div class="line">                msg.obj = copy;</div><div class="line">                msg.what = PLAY;</div><div class="line">                msg.arg1 = frames[i++].delay;</div><div class="line">                handler.sendMessage(msg);</div><div class="line">            &#125;</div><div class="line">            i%=frameLength;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

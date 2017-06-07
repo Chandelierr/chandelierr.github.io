@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://chandelierr.github.io/2017/05/24/View的事件体系4-事件分发机制/index.html">
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="4、View 的事件分发机制4.1、点击事件的传递规则 点击事件指的就是 MotionEvent。点击事件的时间分发，其实就是 MotionEvent 事件的分发过程，即当一个 MotionEvent 产生了以后，系统需要把这个事件传递给一个具体的 View，而这个传递的过程就是分发过程。  点击事件的分发过程由三个很重要的方法来共同完成：dispatchTouchEvent()、onInterc">
-<meta property="og:updated_time" content="2017-05-24T14:36:52.914Z">
+<meta property="og:updated_time" content="2017-05-26T04:29:44.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的事件体系4-事件分发机制 | Chandelierr">
 <meta name="twitter:description" content="4、View 的事件分发机制4.1、点击事件的传递规则 点击事件指的就是 MotionEvent。点击事件的时间分发，其实就是 MotionEvent 事件的分发过程，即当一个 MotionEvent 产生了以后，系统需要把这个事件传递给一个具体的 View，而这个传递的过程就是分发过程。  点击事件的分发过程由三个很重要的方法来共同完成：dispatchTouchEvent()、onInterc">
@@ -205,6 +205,8 @@ classes that you can use:
 <li><code>onClick</code>会发生的前提是当前View是可点击的，并且它收到了down和up事件。</li>
 <li>事件传递过程是由外向内的，即事件总是先传递给父元素，然后再由父元素分发给子View，通过<code>requestDisallowInterceptTouchEvent</code>方法可以在子元素中干预父元素的时间分发过程，但是ACTION_DOWN事件除外。</li>
 </ol>
+<h3 id="4-2、事件分发的源码解析"><a href="#4-2、事件分发的源码解析" class="headerlink" title="4.2、事件分发的源码解析"></a>4.2、事件分发的源码解析</h3><p><strong>1. Activity 对点击事件的分发过程</strong></p>
+<p>点击事件用 MotionEvent 来表示，当一个点击操作发生时，事件最先传递给当前 Activity，由 Activity 的 <code>dispatchTouchEvent</code>来进行事件派发，具体的工作是由Activity内部的Window来完成的。Window</p>
 
   </section>
 
