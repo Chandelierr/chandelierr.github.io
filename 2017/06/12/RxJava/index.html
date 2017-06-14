@@ -24,7 +24,8 @@
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="RxJava 是什么，能解决什么问题 github 官方介绍   RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences. 一个运行在 JVM 上的库，通">
 <meta property="og:image" content="http://chandelierr.github.io/2017/06/12/RxJava/rxjava的观察者模式.jpg">
-<meta property="og:updated_time" content="2017-06-13T14:31:09.968Z">
+<meta property="og:image" content="http://chandelierr.github.io/2017/06/12/RxJava/map.jpg">
+<meta property="og:updated_time" content="2017-06-14T14:36:24.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJava | Chandelierr">
 <meta name="twitter:description" content="RxJava 是什么，能解决什么问题 github 官方介绍   RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences. 一个运行在 JVM 上的库，通">
@@ -266,6 +267,21 @@ classes that you can use:
 <p>放在后面，它的原理是以<strong>变换</strong>的原理作为基础的。</p>
 <h3 id="4、变换"><a href="#4、变换" class="headerlink" title="4、变换"></a>4、变换</h3><p>RxJava提供了对事件序列进行变换的支持，这是它的核心功能之一。<strong>所谓变换，就是将事件序列中的对象或整个序列进行加工处理，转换成不同的事件或事件序列。</strong></p>
 <p><strong>(1)API</strong></p>
+<p>首先看一个<code>map()</code>的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">observable.just(<span class="string">"images/logo.png"</span>)</div><div class="line">                .map(<span class="keyword">new</span> Func1&lt;String, Bitmap&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">call</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> getBitmapFromPath(s);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribe(<span class="keyword">new</span> Action1&lt;Bitmap&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</div><div class="line">                        showBitmap(bitmap);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure>
+<p>这里出现了一个叫做Func1的类。它和Action1非常相似，也是RxJava的一个借口，用于包装含有一个参数的方法。Func1和Action1的区别在于，Func1包装的是有返回值的方法。另外，和ActionX一样，FuncX也有多个，用于不同参数个数的方法。</p>
+<p>可以看到，<code>map()</code>方法将参数中的String对象转换成一个Bitmap对象后返回，而在经过<code>map()</code>方法后，事件的参数类型也有String转换为了Bitmap。这种直接变换对象并返回的，是最常见的也是最容易理解的变换。不过RxJava的比那还远不止这样，它不仅可以针对事件对象，还可以针对整个事件队列，这使得RxJava变得非常灵活。列举几个常用的变换：</p>
+<ul>
+<li><p><code>map()</code>:如上，事件对象的直接变换。</p>
+<p><img src="/2017/06/12/RxJava/map.jpg" alt="map"></p>
+<ul>
+<li><p><code>flatMap()</code>:这是一个很有用但是非常难理解的变换。首先假设由这么一种需求：假设有一个数据结构【学生】，现在需要打印出一组学生的名字。实现方式非常简单:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Student[] students = ...;</div><div class="line">      Subscriber&lt;String&gt; subscriber = <span class="keyword">new</span> Subscriber&lt;String&gt;() &#123;</div><div class="line">          <span class="meta">@Override</span></div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">              Log.d(tag,s);</div><div class="line">          &#125;</div><div class="line">          ...</div><div class="line">      &#125;;</div><div class="line">      Observable.from(students)</div><div class="line">              .map(<span class="keyword">new</span> Func1&lt;Student, String&gt;() &#123;</div><div class="line">                  <span class="meta">@Override</span></div><div class="line">                  <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">(Student student)</span> </span>&#123;</div><div class="line">                      <span class="keyword">return</span> student.getName();</div><div class="line">                  &#125;</div><div class="line">              &#125;)</div><div class="line">              .subscribe(subscriber);</div></pre></td></tr></table></figure>
+<p>很简单，再假设:</p>
+</li>
+</ul>
+</li>
+</ul>
 
   </section>
 
