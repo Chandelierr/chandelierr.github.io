@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      RxJava_ReadMe | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="RxJava: Reactive Extensions for the JVM   RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences. It ext">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJava_ReadMe | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/06/15/RxJava-ReadMe/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="RxJava: Reactive Extensions for the JVM   RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences. It ext">
+<meta property="og:image" content="https://camo.githubusercontent.com/6ac211c100c1f8b65ab7906790d0a00449e21b5d/68747470733a2f2f7472617669732d63692e6f72672f5265616374697665582f52784a6176612e7376673f6272616e63683d322e78">
+<meta property="og:image" content="https://camo.githubusercontent.com/fc87312b1048b773b33257cefb454b589049f31e/687474703a2f2f636f6465636f762e696f2f6769746875622f5265616374697665582f52784a6176612f636f7665726167652e7376673f6272616e63683d322e78">
+<meta property="og:image" content="https://camo.githubusercontent.com/2b9a8023a05e85bf5c0001200f04142c40bb399f/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e7265616374697665782e72786a617661322f72786a6176612f62616467652e737667">
+<meta property="og:updated_time" content="2017-06-15T05:40:41.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJava_ReadMe | Chandelierr">
+<meta name="twitter:description" content="RxJava: Reactive Extensions for the JVM   RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences. It ext">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/6ac211c100c1f8b65ab7906790d0a00449e21b5d/68747470733a2f2f7472617669732d63692e6f72672f5265616374697665582f52784a6176612e7376673f6272616e63683d322e78">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">RxJava_ReadMe</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-06-15" class="post-meta__date date">2017-06-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="RxJava-Reactive-Extensions-for-the-JVM"><a href="#RxJava-Reactive-Extensions-for-the-JVM" class="headerlink" title="RxJava: Reactive Extensions for the JVM"></a>RxJava: Reactive Extensions for the JVM</h1><p><a href="https://travis-ci.org/ReactiveX/RxJava/builds" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/6ac211c100c1f8b65ab7906790d0a00449e21b5d/68747470733a2f2f7472617669732d63692e6f72672f5265616374697665582f52784a6176612e7376673f6272616e63683d322e78" alt="img"></a> <a href="https://codecov.io/gh/ReactiveX/RxJava/branch/2.x" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/fc87312b1048b773b33257cefb454b589049f31e/687474703a2f2f636f6465636f762e696f2f6769746875622f5265616374697665582f52784a6176612f636f7665726167652e7376673f6272616e63683d322e78" alt="codecov.io"></a> <a href="https://maven-badges.herokuapp.com/maven-central/io.reactivex.rxjava2/rxjava" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/2b9a8023a05e85bf5c0001200f04142c40bb399f/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f696f2e7265616374697665782e72786a617661322f72786a6176612f62616467652e737667" alt="Maven Central"></a></p>
+<p>RxJava is a Java VM implementation of <a href="http://reactivex.io/" target="_blank" rel="external">Reactive Extensions</a>: a library for composing asynchronous and event-based programs by using observable sequences.</p>
+<p>It extends the <a href="http://en.wikipedia.org/wiki/Observer_pattern" target="_blank" rel="external">observer pattern</a> to support sequences of data/events and adds operators that allow you to compose sequences together declaratively while abstracting away concerns about things like low-level threading, synchronization, thread-safety and concurrent data structures.</p>
+<h4 id="Version-1-x-Javadoc"><a href="#Version-1-x-Javadoc" class="headerlink" title="Version 1.x (Javadoc)"></a>Version 1.x (<a href="http://reactivex.io/RxJava/1.x/javadoc/" target="_blank" rel="external">Javadoc</a>)</h4><p>Looking for version 1.x? Jump <a href="https://github.com/ReactiveX/RxJava/tree/1.x" target="_blank" rel="external">to the 1.x branch</a>.</p>
+<p>Timeline plans for the 1.x line:</p>
+<ul>
+<li><strong>June 1, 2017</strong> - feature freeze (no new operators), only bugfixes</li>
+<li><strong>March 31, 2018</strong> - end of life, no further development</li>
+</ul>
+<h4 id="Version-2-x-Javadoc"><a href="#Version-2-x-Javadoc" class="headerlink" title="Version 2.x (Javadoc)"></a>Version 2.x (<a href="http://reactivex.io/RxJava/2.x/javadoc/" target="_blank" rel="external">Javadoc</a>)</h4><ul>
+<li>single dependency: <a href="https://github.com/reactive-streams/reactive-streams-jvm" target="_blank" rel="external">Reactive-Streams</a></li>
+<li>continued support for Java 6+ &amp; <a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">Android</a> 2.3+</li>
+<li>performance gains through design changes learned through the 1.x cycle and through <a href="https://github.com/reactor/reactive-streams-commons" target="_blank" rel="external">Reactive-Streams-Commons</a> research project.</li>
+<li>Java 8 lambda-friendly API</li>
+<li>non-opinionated about source of concurrency (threads, pools, event loops, fibers, actors, etc)</li>
+<li>async or synchronous execution</li>
+<li>virtual time and schedulers for parameterized concurrency</li>
+</ul>
+<p>Version 2.x and 1.x will live side-by-side for several years. They will have different group ids (<code>io.reactivex.rxjava2</code> vs <code>io.reactivex</code>) and namespaces (<code>io.reactivex</code> vs <code>rx</code>).</p>
+<p>See the differences between version 1.x and 2.x in the wiki article <a href="https://github.com/ReactiveX/RxJava/wiki/What&#39;s-different-in-2.0" target="_blank" rel="external">What’s different in 2.0</a>. Learn more about RxJava in general on the <a href="https://github.com/ReactiveX/RxJava/wiki" target="_blank" rel="external">Wiki Home</a>.</p>
+<h2 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h2><p>The first step is to include RxJava 2 into your project, for example, as a Gradle compile dependency:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &quot;io.reactivex.rxjava2:rxjava:2.x.y&quot;</div></pre></td></tr></table></figure>
+<p>The second is to write the <strong>Hello World</strong> program:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">package rxjava.examples;</div><div class="line"></div><div class="line">import io.reactivex.*;</div><div class="line"></div><div class="line">public class HelloWorld &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Flowable.just(&quot;Hello world&quot;).subscribe(System.out::println);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>If your platform doesn’t support Java 8 lambdas (yet), you have to create an inner class of <code>Consumer</code> manually:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import io.reactivex.functions.Consumer;</div><div class="line"></div><div class="line">Flowable.just(&quot;Hello world&quot;)</div><div class="line">  .subscribe(new Consumer&lt;String&gt;() &#123;</div><div class="line">      @Override public void accept(String s) &#123;</div><div class="line">          System.out.println(s);</div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>RxJava 2 features several base classes you can discover operators on:</p>
+<ul>
+<li><code>io.reactivex.Flowable</code> : 0..N flows, supporting Reactive-Streams and backpressure</li>
+<li><code>io.reactivex.Observable</code>: 0..N flows, no backpressure</li>
+<li><code>io.reactivex.Single</code>: a flow of exactly 1 item or an error</li>
+<li><code>io.reactivex.Completable</code>: a flow without items but only a completion or error signal</li>
+<li><code>io.reactivex.Maybe</code>: a flow with no items, exactly one item or an error</li>
+</ul>
+<p>One of the common use cases for RxJava is to run some computation, network request on a background thread and show the results (or error) on the UI thread:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import io.reactivex.schedulers.Schedulers;</div><div class="line"></div><div class="line">Flowable.fromCallable(() -&gt; &#123;</div><div class="line">    Thread.sleep(1000); //  imitate expensive computation</div><div class="line">    return &quot;Done&quot;;</div><div class="line">&#125;)</div><div class="line">  .subscribeOn(Schedulers.io())</div><div class="line">  .observeOn(Schedulers.single())</div><div class="line">  .subscribe(System.out::println, Throwable::printStackTrace);</div><div class="line"></div><div class="line">Thread.sleep(2000); // &lt;--- wait for the flow to finish</div></pre></td></tr></table></figure>
+<p>This style of chaining methods is called a <strong>fluent API</strong> which resembles the <strong>builder pattern</strong>. However, RxJava’s reactive types are immutable; each of the method calls returns a new <code>Flowable</code> with added behavior. To illustrate, the example can be rewritten as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Flowable&lt;String&gt; source = Flowable.fromCallable(() -&gt; &#123;</div><div class="line">    Thread.sleep(1000); //  imitate expensive computation</div><div class="line">    return &quot;Done&quot;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Flowable&lt;String&gt; runBackground = source.subscribeOn(Schedulers.io());</div><div class="line"></div><div class="line">Flowable&lt;String&gt; showForeground = runBackground.observeOn(Schedulers.single());</div><div class="line"></div><div class="line">showForeground.subscribe(System.out::println, Throwable::printStackTrace);</div><div class="line"></div><div class="line">Thread.sleep(2000);</div></pre></td></tr></table></figure>
+<p>Typically, you can move computations or blocking IO to some other thread via <code>subscribeOn</code>. Once the data is ready, you can make sure they get processed on the foreground or GUI thread via <code>observeOn</code>.</p>
+<p>RxJava operators don’t work with <code>Thread</code>s or <code>ExecutorService</code>s directly but with so called <code>Scheduler</code>s that abstract away sources of concurrency behind an uniform API. RxJava 2 features several standard schedulers accessible via <code>Schedulers</code> utility class. These are available on all JVM platforms but some specific platforms, such as Android, have their own typical <code>Scheduler</code>s defined: <code>AndroidSchedulers.mainThread()</code>, <code>SwingScheduler.instance()</code> or <code>JavaFXSchedulers.gui()</code>.</p>
+<p>The <code>Thread.sleep(2000);</code> at the end is no accident. In RxJava the default <code>Scheduler</code>s run on daemon threads, which means once the Java main thread exits, they all get stopped and background computations may never happen. Sleeping for some time in this example situations let’s you see the output of the flow on the console with time to spare.</p>
+<p>Flows in RxJava are sequential in nature split into processing stages that may run <strong>concurrently</strong> with each other:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Flowable.range(1, 10)</div><div class="line">  .observeOn(Schedulers.computation())</div><div class="line">  .map(v -&gt; v * v)</div><div class="line">  .blockingSubscribe(System.out::println);</div></pre></td></tr></table></figure>
+<p>This example flow squares the numbers from 1 to 10 on the <strong>computation</strong> <code>Scheduler</code> and consumes the results on the “main” thread (more precisely, the caller thread of <code>blockingSubscribe</code>). However, the lambda <code>v -&gt; v * v</code> doesn’t run in parallel for this flow; it receives the values 1 to 10 on the same computation thread one after the other.</p>
+<p>Processing the numbers 1 to 10 in parallel is a bit more involved:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Flowable.range(1, 10)</div><div class="line">  .flatMap(v -&gt;</div><div class="line">      Flowable.just(v)</div><div class="line">        .subscribeOn(Schedulers.computation())</div><div class="line">        .map(w -&gt; w * w)</div><div class="line">  )</div><div class="line">.blockingSubscribe(System.out::println);</div></pre></td></tr></table></figure>
+<p>Practically, paralellism in RxJava means running independent flows and merging their results back into a single flow. The operator <code>flatMap</code> does this by first mapping each number from 1 to 10 into its own individual <code>Flowable</code>, runs them and merges the computed squares.</p>
+<p>Starting from 2.0.5, there is an <em>experimental</em> operator <code>parallel()</code> and type <code>ParallelFlowable</code> that helps achieve the same parallel processing pattern:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Flowable.range(1, 10)</div><div class="line">.parallel()</div><div class="line">.runOn(Schedulers.computation())</div><div class="line">.map(v -&gt; v * v)</div><div class="line">.sequential()</div><div class="line">.blockingSubscribe(System.out::println);</div></pre></td></tr></table></figure>
+<p><code>flatMap</code> is a powerful operator and helps in a lot of situations. For example, given a service that returns a <code>Flowable</code>, we’d like to call another service with values emitted by the first service:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Flowable&lt;Inventory&gt; inventorySource = warehouse.getInventoryAsync();</div><div class="line"></div><div class="line">inventorySource.flatMap(inventoryItem -&gt;</div><div class="line">    erp.getDemandAsync(inventoryItem.getId())</div><div class="line">    .map(demand </div><div class="line">        -&gt; System.out.println(&quot;Item &quot; + inventoryItem.getName() + &quot; has demand &quot; + demand));</div><div class="line">)</div><div class="line">.subscribe();</div></pre></td></tr></table></figure>
+<p>Note, however, that <code>flatMap</code> doesn’t guarantee any order and the end result from the inner flows may end up interleaved. There are alternative operators:</p>
+<ul>
+<li><code>concatMap</code> that maps and runs one inner flow at a time and</li>
+<li><code>concatMapEager</code> which runs all inner flows “at once” but the output flow will be in the order those inner flows were created.</li>
+</ul>
+<p>For further details, consult the <a href="https://github.com/ReactiveX/RxJava/wiki" target="_blank" rel="external">wiki</a>.</p>
+<h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><ul>
+<li>Google Group: <a href="http://groups.google.com/d/forum/rxjava" target="_blank" rel="external">RxJava</a></li>
+<li>Twitter: <a href="http://twitter.com/RxJava" target="_blank" rel="external">@RxJava</a></li>
+<li><a href="https://github.com/ReactiveX/RxJava/issues" target="_blank" rel="external">GitHub Issues</a></li>
+<li>StackOverflow: <a href="http://stackoverflow.com/questions/tagged/rx-java" target="_blank" rel="external">rx-java</a> and <a href="http://stackoverflow.com/questions/tagged/rx-java2" target="_blank" rel="external">rx-java2</a></li>
+<li><a href="https://gitter.im/ReactiveX/RxJava" target="_blank" rel="external">Gitter.im</a></li>
+</ul>
+<h2 id="Versioning"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning</h2><p>Version 2.x is now considered stable and final. Version 1.x will be supported for several years along with 2.x. Enhancements and bugfixes will be synchronized between the two in a timely manner.</p>
+<p>Minor 2.x increments (such as 2.1, 2.2, etc) will occur when non-trivial new functionality is added or significant enhancements or bug fixes occur that may have behavioral changes that may affect some edge cases (such as dependence on behavior resulting from a bug). An example of an enhancement that would classify as this is adding reactive pull backpressure support to an operator that previously did not support it. This should be backwards compatible but does behave differently.</p>
+<p>Patch 2.x.y increments (such as 2.0.0 -&gt; 2.0.1, 2.3.1 -&gt; 2.3.2, etc) will occur for bug fixes and trivial functionality (like adding a method overload). New functionality marked with an <a href="https://github.com/ReactiveX/RxJava/blob/2.x/src/main/java/io/reactivex/annotations/Beta.java" target="_blank" rel="external"><code>@Beta</code></a> or <a href="https://github.com/ReactiveX/RxJava/blob/2.x/src/main/java/io/reactivex/annotations/Experimental.java" target="_blank" rel="external"><code>@Experimental</code></a> annotation can also be added in patch releases to allow rapid exploration and iteration of unstable new functionality.</p>
+<h4 id="Beta"><a href="#Beta" class="headerlink" title="@Beta"></a>@Beta</h4><p>APIs marked with the <a href="https://github.com/ReactiveX/RxJava/blob/2.x/src/main/java/io/reactivex/annotations/Beta.java" target="_blank" rel="external"><code>@Beta</code></a> annotation at the class or method level are subject to change. They can be modified in any way, or even removed, at any time. If your code is a library itself (i.e. it is used on the CLASSPATH of users outside your own control), you should not use beta APIs, unless you repackage them (e.g. using ProGuard, shading, etc).</p>
+<h4 id="Experimental"><a href="#Experimental" class="headerlink" title="@Experimental"></a>@Experimental</h4><p>APIs marked with the <a href="https://github.com/ReactiveX/RxJava/blob/2.x/src/main/java/io/reactivex/annotations/Experimental.java" target="_blank" rel="external"><code>@Experimental</code></a> annotation at the class or method level will almost certainly change. They can be modified in any way, or even removed, at any time. You should not use or rely on them in any production code. They are purely to allow broad testing and feedback.</p>
+<h4 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h4><p>APIs marked with the <code>@Deprecated</code> annotation at the class or method level will remain supported until the next major release but it is recommended to stop using them.</p>
+<h4 id="io-reactivex-internal"><a href="#io-reactivex-internal" class="headerlink" title="io.reactivex.internal.*"></a>io.reactivex.internal.*</h4><p>All code inside the <code>io.reactivex.internal.*</code> packages is considered private API and should not be relied upon at all. It can change at any time.</p>
+<h2 id="Full-Documentation"><a href="#Full-Documentation" class="headerlink" title="Full Documentation"></a>Full Documentation</h2><ul>
+<li><a href="https://github.com/ReactiveX/RxJava/wiki" target="_blank" rel="external">Wiki</a></li>
+<li><a href="http://reactivex.io/RxJava/2.x/javadoc/" target="_blank" rel="external">Javadoc</a></li>
+</ul>
+<h2 id="Binaries"><a href="#Binaries" class="headerlink" title="Binaries"></a>Binaries</h2><p>Binaries and dependency information for Maven, Ivy, Gradle and others can be found at <a href="http://search.maven.org/#search%7Cga%7C1%7Cio.reactivex.rxjava2" target="_blank" rel="external">http://search.maven.org</a>.</p>
+<p>Example for Gradle:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;io.reactivex.rxjava2:rxjava:x.y.z&apos;</div></pre></td></tr></table></figure>
+<p>and for Maven:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;io.reactivex.rxjava2&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;rxjava&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;x.y.z&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>and for Ivy:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;dependency org=&quot;io.reactivex.rxjava2&quot; name=&quot;rxjava&quot; rev=&quot;x.y.z&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>Snapshots are available via <a href="https://oss.jfrog.org/webapp/#/home" target="_blank" rel="external">JFrog</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    maven &#123; url &apos;https://oss.jfrog.org/libs-snapshot&apos; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile &apos;io.reactivex.rxjava2:rxjava:2.0.0-DP0-SNAPSHOT&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><p>To build:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:ReactiveX/RxJava.git</div><div class="line">$ cd RxJava/</div><div class="line">$ git checkout -b 2.x</div><div class="line">$ ./gradlew build</div></pre></td></tr></table></figure>
+<p>Further details on building can be found on the <a href="https://github.com/ReactiveX/RxJava/wiki/Getting-Started" target="_blank" rel="external">Getting Started</a> page of the wiki.</p>
+<h2 id="Bugs-and-Feedback"><a href="#Bugs-and-Feedback" class="headerlink" title="Bugs and Feedback"></a>Bugs and Feedback</h2><p>For bugs, questions and discussions please use the <a href="https://github.com/ReactiveX/RxJava/issues" target="_blank" rel="external">Github Issues</a>.</p>
+<h2 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h2><p>Copyright (c) 2016-present, RxJava Contributors.</p>
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="external">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
