@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      周报1 | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
+<meta name="keywords" content="xiaomi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="周报1 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/07/21/周报1/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
+<meta property="og:updated_time" content="2017-07-21T08:13:03.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="周报1 | Chandelierr">
+<meta name="twitter:description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">周报1</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-21" class="post-meta__date date">2017-07-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/xiaomi/">xiaomi</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h2><p><strong>ValueAnimator</strong>:</p>
+<p><strong>ObjectAnimator</strong>:继承自ValueAnimator，</p>
+<p><strong>AnimatorSet</strong>:</p>
+<p>属性动画的示例</p>
+<ul>
+<li><p>AnimatorListener：属性动画监听器;</p>
+<ul>
+<li><p>定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">interface</span> <span class="title">AnimatorListener</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以定义动画的开始、结束、取消和重复。</p>
+</li>
+</ul>
+</li>
+<li><p>AnimatorListenerAdapter:该监听器的适配器，这样可以有选择的实现以上四个方法</p>
+</li>
+<li><p>AnimatorUpdateListener:用于监听整个动画。</p>
+<ul>
+<li><p>定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">interface</span> <span class="title">AnimatorUpdateListener</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">onAnimatorUpdate</span><span class="params">(ValueAnimator animation)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>若要在动画过程中作其他事情。例如：在显示输入框的时候，让顶部面板逐渐隐藏；在输入框消失时，让顶部面板渐显。可以使用该监听器。</p>
+<p>动画每播放一帧，<code>onAnimatorUpdate()</code>就会被调用一次。</p>
+</li>
+</ul>
+</li>
+<li><p>实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">startInputAnimator</span><span class="params">(<span class="keyword">boolean</span> inputShow)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (mInputShow == inputShow) &#123;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">  mInputShow = inputShow;</div><div class="line">  ValueAnimator valueAnimator = deRef(mInputAnimatorRef);</div><div class="line">  <span class="keyword">if</span> (valueAnimator != <span class="keyword">null</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (!valueAnimator.isStarted() &amp;&amp; !valueAnimator.isRunning()) &#123;</div><div class="line">      valueAnimator.start();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">  valueAnimator = ValueAnimator.ofFloat(<span class="number">0.0f</span>, <span class="number">1.0f</span>);</div><div class="line">  valueAnimator.setDuration(<span class="number">300</span>);</div><div class="line">  valueAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span> </span>&#123;</div><div class="line">      <span class="keyword">float</span> value = (<span class="keyword">float</span>) animation.getAnimatedValue();</div><div class="line">      <span class="keyword">if</span> (mInputShow) &#123;</div><div class="line">        value = <span class="number">1.0f</span> - value;</div><div class="line">      &#125;</div><div class="line">      setAlpha(mTopInfoView, value);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  valueAnimator.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (mInputShow) &#123;</div><div class="line">        <span class="keyword">if</span> (mIsLandscape) &#123;</div><div class="line">          setVisibility(mLiveCommentView, View.GONE);</div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        setVisibility(mTopInfoView, View.VISIBLE);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span> (mInputShow) &#123;</div><div class="line">        setVisibility(mTopInfoView, View.GONE);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        setAlpha(mTopInfoView, <span class="number">1.0f</span>);</div><div class="line">        <span class="keyword">if</span> (mIsLandscape) &#123;</div><div class="line">          setVisibility(mLiveCommentView, View.VISIBLE);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  valueAnimator.start();</div><div class="line">  mInputAnimatorRef = <span class="keyword">new</span> WeakReference&lt;&gt;(valueAnimator);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="MVP的View和Presenter"><a href="#MVP的View和Presenter" class="headerlink" title="MVP的View和Presenter"></a>MVP的View和Presenter</h2><p>View和Presenter的绑定，为了让 view 和 presenter 能够相互通信，双方都要持有对方的引用。</p>
+<p>常用做法：</p>
+<ol>
+<li>定义一个IPresenter接口，接口中定义view需要通知presenter做的事情的方法，让Presenter实现该接口。</li>
+<li>在View中new一个Presenter对象，这样在view中就可以调用IPresenter定义的方法。这样就实现了view到presenter的通信。</li>
+<li>在view中定义一个IView接口，接口中定义presenter需要通知view做的事情的方法。</li>
+<li>为IPresenter添加setView方法，然后在view中调用presenter.setView(new IView(){…})</li>
+<li>presenter实现setView方法，这样就会持有view的引用，可以调用IView中定义的方法。</li>
+<li>在4中的new IView(){…}实现IView定义的方法。这样就实现了presenter到view的通知。</li>
+</ol>
+<h2 id="Git常用操作"><a href="#Git常用操作" class="headerlink" title="Git常用操作"></a>Git常用操作</h2><h3 id="push出错时："><a href="#push出错时：" class="headerlink" title="push出错时："></a>push出错时：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">gitdir=(git rev-parse --git-dir); scp -p -P 29418 wangmengjie@git.xiaomi.com:hooks/commit-msg &#123;gitdir&#125;/hooks/</div><div class="line"><span class="meta">#</span><span class="bash">拷贝这次commit的前一次commitID</span></div><div class="line">git log</div><div class="line"><span class="meta">#</span><span class="bash">reset到前一个commit</span></div><div class="line">git commit commitId</div><div class="line"><span class="meta">#</span><span class="bash">查看当前状态</span></div><div class="line">git status</div><div class="line"><span class="meta">#</span><span class="bash">保持和远端的同步</span></div><div class="line">git pull</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
+<h3 id="提交到远端之后，需要做一些修改"><a href="#提交到远端之后，需要做一些修改" class="headerlink" title="提交到远端之后，需要做一些修改"></a>提交到远端之后，需要做一些修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add .</div><div class="line">git status</div><div class="line"><span class="meta">#</span><span class="bash">git使用amend选项提供了最后一次commit的反悔</span></div><div class="line">git commit --amend</div><div class="line">git status</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
+<ul>
+<li>git使用amend选项提供了最后一次commit的反悔。但是对于历史提交呢，就需要使用rebase了。</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
