@@ -7,7 +7,7 @@
     
 
     <title>
-      onInterceptTouchEvent &amp;&amp; onTouchEvent | Chandelierr 
+      onInterceptTouchEvent\onTouchEvent | Chandelierr 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="�ȉ��s���|?��������⋁C����?���|?�C�\�|?�I�s���D�C�L??���]�Ȏw�o���C���������I �B onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events">
+    <meta name="description" content="以下都是翻译自官方网站，半搬运半翻译，可能翻译的不大好，有错误希望可以指出来，我会改正的 。 onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events as they are dispatched to your c">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="onInterceptTouchEvent &amp;&amp; onTouchEvent | Chandelierr">
-<meta property="og:url" content="http://chandelierr.github.io/2017/07/25/onInterceptTouchEvent和onTouchEvent/index.html">
+<meta property="og:title" content="onInterceptTouchEvent\onTouchEvent | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/07/25/onInterceptTouchEvent与onTouchEvent/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="�ȉ��s���|?��������⋁C����?���|?�C�\�|?�I�s���D�C�L??���]�Ȏw�o���C���������I �B onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events">
-<meta property="og:updated_time" content="2017-07-25T10:27:10.879Z">
+<meta property="og:description" content="以下都是翻译自官方网站，半搬运半翻译，可能翻译的不大好，有错误希望可以指出来，我会改正的 。 onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events as they are dispatched to your c">
+<meta property="og:updated_time" content="2017-07-25T10:30:15.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="onInterceptTouchEvent &amp;&amp; onTouchEvent | Chandelierr">
-<meta name="twitter:description" content="�ȉ��s���|?��������⋁C����?���|?�C�\�|?�I�s���D�C�L??���]�Ȏw�o���C���������I �B onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events">
+<meta name="twitter:title" content="onInterceptTouchEvent\onTouchEvent | Chandelierr">
+<meta name="twitter:description" content="以下都是翻译自官方网站，半搬运半翻译，可能翻译的不大好，有错误希望可以指出来，我会改正的 。 onInterceptTouchEvent Implement this method to intercept all touch screen motion events. This allows you to watch events as they are dispatched to your c">
     
     
     
@@ -150,7 +150,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">onInterceptTouchEvent &amp;&amp; onTouchEvent</h1>
+    <h1 class="post-title">onInterceptTouchEvent\onTouchEvent</h1>
 
     
 
@@ -176,7 +176,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p><em>�ȉ��s���|?��������⋁C����?���|?�C�\�|?�I�s���D�C�L??���]�Ȏw�o���C���������I �B</em></p>
+    <p><em>以下都是翻译自官方网站，半搬运半翻译，可能翻译的不大好，有错误希望可以指出来，我会改正的 。</em></p>
 <h1 id="onInterceptTouchEvent"><a href="#onInterceptTouchEvent" class="headerlink" title="onInterceptTouchEvent"></a>onInterceptTouchEvent</h1><blockquote>
 <p>Implement this method to intercept all touch screen motion events. This allows you to watch events as they are dispatched to your children, and take ownership of the current gesture at any point.</p>
 </blockquote>
@@ -187,15 +187,15 @@ classes that you can use:
 <li>For as long as you return false from this function, each following event (up to and including the final up) will be delivered first here and then to the target’s onTouchEvent().</li>
 <li>If you return true from here, you will not receive any following events: the target view will receive the same event but with the action <code>ACTION_CANCEL</code>, and all further events will be delivered to your onTouchEvent() method and no longer appear here.</li>
 </ol>
-<p>�g�p�����@���B�揊�L�G�̎����B��event�핪??�qview?�C����???�T event�C����?�������O�I��?�B</p>
-<p>�g�p�����\���v����?�T�C��?���^<code>View.onTouchEvent()</code>�L������??�I���� ,�g�p���v���Ȑ�?�I����??<code>View.onTouchEvent()</code>�a <code>ViewGroup.onInterceptTouchEvent()</code>�Bevent���ȉ�?�������F</p>
+<p>使用此方法来截取所有触摸事件。当event被分发给子view时，它允许你监控 event，并随时掌握当前的手势。</p>
+<p>使用此功能需要非常谨慎，因为它与<code>View.onTouchEvent()</code>有着相当复杂的交互 ,使用它要求以正确的方式实现<code>View.onTouchEvent()</code>和 <code>ViewGroup.onInterceptTouchEvent()</code>。event将按以下顺序收到：</p>
 <ol>
-<li>?������ <code>ViewGroup.onInterceptTouchEvent()</code>���� down �����B</li>
-<li>down �����Ȍ��R? viewgroup �I�꘢�q view ?���C���ȗR���ȓI<code>onTouchEvent()</code>?���G?�Ӗ���?���v??<code>onTouchEvent()</code>���ԉ� true�C???����??������?�I�@?����(���s�����Q�� view ��?����)�B��?�C��?<code>onTouchEvent()</code>�ԉ� true�C?���s�Ę�<code>onInterceptTouchEvent()</code>�ڝ��C���@? events�C�󊎏��L�G��?���K??����<code>onTouchEvent()</code>�B</li>
-<li>���v?�����@���ʕԉ� false�C��??�� event ���񒆓I�@? events ���������t��?���C�R�@�݌�?�ړI view �I<code>onTouchEvent()</code>�B</li>
-<li>�@��?�����@�ԉ� true�C��??���s��� event �������񒆍@?�I events�C��? view ���ڝ��꘢ event �A���������꘢  ACTION_CANCEL �����C���L���� events ���핪?�����ȓI<code>onTouchEvent()</code>���@�C�s���ďo?�ݖ{���@�B</li>
+<li>你将会在 <code>ViewGroup.onInterceptTouchEvent()</code>收到 down 事件。</li>
+<li>down 事件可以交由该 viewgroup 的一个子 view 处理，也可以由自己的<code>onTouchEvent()</code>处理；这意味着你需要实现<code>onTouchEvent()</code>并返回 true，这样你将会继续收到手势的后续部分(而不是去找父 view 去处理它)。同时，通过<code>onTouchEvent()</code>返回 true，你将不再从<code>onInterceptTouchEvent()</code>接收任何后续 events，并且所有触摸处理必须发生在<code>onTouchEvent()</code>。</li>
+<li>只要这个方法里面返回 false，那么这个 event 序列中的后续 events 将首先交付到这里，然后在交给目的 view 的<code>onTouchEvent()</code>。</li>
+<li>如果这个方法返回 true，那么你将不会收到 event 事件序列中后续的 events，目标 view 将接收一个 event 但是伴随着一个  ACTION_CANCEL 事件，所有其他 events 将被分发到自己的<code>onTouchEvent()</code>方法，不会再出现在本方法。</li>
 </ol>
-<p>�{���@�L�꘢�ԉ�?�F�@�ʕԉ�true�C�����q view �B�� events�C�󊎕�??���ȓI<code>onTouchEvent()</code>?���B���O��? view ���ڝ����꘢ ACTION_CANCEL �����C���s�Đڝ����������B</p>
+<p>本方法有一个返回值：如果返回true，将从子 view 截取 events，并且分发给自己的<code>onTouchEvent()</code>处理。当前目标 view 将接收到一个 ACTION_CANCEL 事件，并不再接收其他消息。</p>
 <h1 id="onTouchEvent"><a href="#onTouchEvent" class="headerlink" title="onTouchEvent"></a>onTouchEvent</h1><blockquote>
 <p>Implement this method to handle touch screen motion events.</p>
 </blockquote>
@@ -205,8 +205,8 @@ classes that you can use:
 <li>dispatching OnClickListener calls</li>
 <li>handling <code>ACTION_CLICK</code> when accessibility features are enabled</li>
 </ul>
-<p>??�����@��?�� motion events�B</p>
-<p>�{���@�L�꘢�ԉ�?�F�@��?���� event �C�A�ԉ� true�C��?�ԉ� false�B</p>
+<p>实现此方法来处理 motion events。</p>
+<p>本方法有一个返回值：如果处理了 event ，就返回 true，否则返回 false。</p>
 
   </section>
 
