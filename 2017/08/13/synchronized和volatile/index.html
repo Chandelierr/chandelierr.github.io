@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      synchronized和volatile | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="无论是谈到synchronied还是volatile，其实都是在谈多线程。每个线程都有一个自己的本地内存空间，线程执行时，先把变量从住内存读取到线程自己的本地内存空间，然后在对变量进行操作。操作完成后，在某个时间再把变量刷新回主内存。 #volatile ###volatile特性： 可见性：现在有两个线程，一个是A线程，另一个是B。线程B中有条件，param！=false是，变无法退出，A修改这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="synchronized和volatile | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/08/13/synchronized和volatile/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="无论是谈到synchronied还是volatile，其实都是在谈多线程。每个线程都有一个自己的本地内存空间，线程执行时，先把变量从住内存读取到线程自己的本地内存空间，然后在对变量进行操作。操作完成后，在某个时间再把变量刷新回主内存。 #volatile ###volatile特性： 可见性：现在有两个线程，一个是A线程，另一个是B。线程B中有条件，param！=false是，变无法退出，A修改这">
+<meta property="og:updated_time" content="2017-08-13T08:31:06.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="synchronized和volatile | Chandelierr">
+<meta name="twitter:description" content="无论是谈到synchronied还是volatile，其实都是在谈多线程。每个线程都有一个自己的本地内存空间，线程执行时，先把变量从住内存读取到线程自己的本地内存空间，然后在对变量进行操作。操作完成后，在某个时间再把变量刷新回主内存。 #volatile ###volatile特性： 可见性：现在有两个线程，一个是A线程，另一个是B。线程B中有条件，param！=false是，变无法退出，A修改这">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">synchronized和volatile</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-13" class="post-meta__date date">2017-08-13</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>无论是谈到synchronied还是volatile，其实都是在谈多线程。每个线程都有一个自己的本地内存空间，线程执行时，先把变量从住内存读取到线程自己的本地内存空间，然后在对变量进行操作。操作完成后，在某个时间再把变量刷新回主内存。</p>
+<p>#volatile</p>
+<p>###volatile特性：</p>
+<p><strong>可见性</strong>：<br>现在有两个线程，一个是A线程，另一个是B。线程B中有条件，param！=false是，变无法退出，A修改这个变量。按照JVM内存模型，A线程将param读取到本地线程内存空间，修改后，再刷新回主内存。<br>而在JVM 设置成 -server模式运行程序时，线程会一直在私有堆栈中读取param。因此，B线程便无法读到A线程改变的param变量从而出现了死循环，导致B无法终止。<strong>这种情形，在《Effective JAVA》中，将之称为“活性失败”</strong></p>
+<p>解决方法，为变量param加上volatile关键字，这里，它强制线程从主内存中取 volatile修饰的变量。</p>
+<p><code>volatile private boolean param = true;</code></p>
+<p>扩展一下，当多个线程之间需要根据某个条件确定 哪个线程可以执行时，要确保这个条件在线程之间是可见的。因此，可以用volatile修饰。<br>综上，volatile关键字的作用是：使变量在多个线程间可见（可见性）</p>
+<p><strong>非原子性</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="keyword">int</span> count;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">            count++;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"count="</span> + count);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        addCount();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Run</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        MyThread[] mythreadArray = <span class="keyword">new</span> MyThread[<span class="number">100</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">            mythreadArray[i] = <span class="keyword">new</span> MyThread();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">            mythreadArray[i].start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行结果并不是预期想的100*100 = 10000，count并没有达到10000.</p>
+<p>原因：volatile修饰的变量并不保证对它的操作具有原子性。</p>
+<p>比如，假设 i 自增到 5，线程A从主内存中读取i，值为5，将它存储到自己的线程空间中，执行加1操作，值为6。此时，CPU切换到线程B执行，从主从内存中读取变量i的值。由于线程A还没有来得及将加1后的结果写回到主内存，线程B就已经从主内存中读取了i，因此，线程B读到的变量 i 值还是5</p>
+<p>相当于线程B读取的是已经过时的数据了，从而导致线程不安全性。<strong>这种情形在《Effective JAVA》中称之为“安全性失败”</strong></p>
+<p><strong>综上，仅靠volatile不能保证线程的安全性。（原子性）</strong></p>
+<p> <strong>volatile关键字修饰的变量不会被指令重排序优化</strong>：</p>
+<p>这里以《深入理解JAVA虚拟机》中一个例子来说明下自己的理解：</p>
+<p>线程A执行的操作如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Map configOptions ;</div><div class="line"><span class="keyword">char</span>[] configText;</div><div class="line"></div><div class="line"><span class="keyword">volatile</span> <span class="keyword">boolean</span> initialized = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="comment">//线程A首先从文件中读取配置信息,调用process...处理配置信息,处理完成了将initialized 设置为true</span></div><div class="line">configOptions = <span class="keyword">new</span> HashMap();</div><div class="line">configText = readConfigFile(fileName);</div><div class="line">processConfig(configText, configOptions);<span class="comment">//负责将配置信息configOptions 成功初始化</span></div><div class="line">initialized = <span class="keyword">true</span>;</div></pre></td></tr></table></figure>
+<p>线程B等待线程A把配置信息初始化成功后，使用配置信息去干活…..线程B执行的操作如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(!initialized)</div><div class="line">&#123;</div><div class="line">    sleep();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用配置信息干活</span></div><div class="line">doSomethingWithConfig();</div></pre></td></tr></table></figure>
+<p>如果initialized变量不用 volatile 修饰，在线程A执行的代码中就有可能指令重排序。</p>
+<p>即：线程A执行的代码中的最后一行：initialized = true 重排序到了 processConfig方法调用的前面执行了，这就意味着：配置信息还未成功初始化，但是initialized变量已经被设置成true了。那么就导致 线程B的while循环“提前”跳出，拿着一个还未成功初始化的配置信息去干活(doSomethingWithConfig方法)。。。。</p>
+<p>因此，initialized 变量就必须得用 volatile修饰。这样，就不会发生指令重排序，也即：只有当配置信息被线程A成功初始化之后，initialized 变量才会初始化为true。<strong>综上，volatile 修饰的变量会禁止指令重排序（有序性）</strong></p>
+<p>##volatile 与 synchronized 的比较</p>
+<p>volatile主要用在多个线程感知实例变量被更改了场合，从而使得各个线程获得最新的值。它强制线程每次从主内存中讲到变量，而不是从线程的私有内存中读取变量，从而保证了数据的可见性。</p>
+<p>比较：</p>
+<p>①volatile轻量级，只能修饰变量。synchronized重量级，还可修饰方法</p>
+<p>②volatile只能保证数据的可见性，不能用来同步，因为多个线程并发访问volatile修饰的变量不会阻塞。</p>
+<p>synchronized不仅保证可见性，而且还保证原子性，因为，只有获得了锁的线程才能进入临界区，从而保证临界区中的所有语句都全部执行。多个线程争抢synchronized锁对象时，会出现阻塞。</p>
+<p>##线程安全性</p>
+<p>线程安全性包括两个方面，①可见性。②原子性。</p>
+<p>从上面自增的例子中可以看出：仅仅使用volatile并不能保证线程安全性。而synchronized则可实现线程的安全性。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
