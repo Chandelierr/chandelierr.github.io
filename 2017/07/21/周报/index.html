@@ -7,7 +7,7 @@
     
 
     <title>
-      周报1 | Chandelierr 
+      周报 | Chandelierr 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,13 +19,13 @@
     <meta name="description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
 <meta name="keywords" content="xiaomi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="周报1 | Chandelierr">
-<meta property="og:url" content="http://chandelierr.github.io/2017/07/21/周报1/index.html">
+<meta property="og:title" content="周报 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/07/21/周报/index.html">
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
-<meta property="og:updated_time" content="2017-07-21T08:13:03.312Z">
+<meta property="og:updated_time" content="2017-08-30T12:35:36.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="周报1 | Chandelierr">
+<meta name="twitter:title" content="周报 | Chandelierr">
 <meta name="twitter:description" content="属性动画ValueAnimator: ObjectAnimator:继承自ValueAnimator， AnimatorSet: 属性动画的示例  AnimatorListener：属性动画监听器;  定义如下： 123456public static interface AnimatorListener &amp;#123;  void onAnimationStart(Animator animati">
     
     
@@ -150,7 +150,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">周报1</h1>
+    <h1 class="post-title">周报</h1>
 
     
 
@@ -214,8 +214,8 @@ classes that you can use:
 <li>presenter实现setView方法，这样就会持有view的引用，可以调用IView中定义的方法。</li>
 <li>在4中的new IView(){…}实现IView定义的方法。这样就实现了presenter到view的通知。</li>
 </ol>
-<h2 id="Git常用操作"><a href="#Git常用操作" class="headerlink" title="Git常用操作"></a>Git常用操作</h2><h3 id="push出错时："><a href="#push出错时：" class="headerlink" title="push出错时："></a>push出错时：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">gitdir=(git rev-parse --git-dir); scp -p -P 29418 wangmengjie@git.xiaomi.com:hooks/commit-msg &#123;gitdir&#125;/hooks/</div><div class="line"><span class="meta">#</span><span class="bash">拷贝这次commit的前一次commitID</span></div><div class="line">git log</div><div class="line"><span class="meta">#</span><span class="bash">reset到前一个commit</span></div><div class="line">git commit commitId</div><div class="line"><span class="meta">#</span><span class="bash">查看当前状态</span></div><div class="line">git status</div><div class="line"><span class="meta">#</span><span class="bash">保持和远端的同步</span></div><div class="line">git pull</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
-<h3 id="提交到远端之后，需要做一些修改"><a href="#提交到远端之后，需要做一些修改" class="headerlink" title="提交到远端之后，需要做一些修改"></a>提交到远端之后，需要做一些修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add .</div><div class="line">git status</div><div class="line"><span class="meta">#</span><span class="bash">git使用amend选项提供了最后一次commit的反悔</span></div><div class="line">git commit --amend</div><div class="line">git status</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
+<h2 id="Git常用操作"><a href="#Git常用操作" class="headerlink" title="Git常用操作"></a>Git常用操作</h2><h3 id="push出错时："><a href="#push出错时：" class="headerlink" title="push出错时："></a>push出错时：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">gitdir=(git rev-parse --git-dir); scp -p -P 29418 wangmengjie@git.xiaomi.com:hooks/commit-msg &#123;gitdir&#125;/hooks/</div><div class="line"><span class="meta">#</span>拷贝这次commit的前一次commitID</div><div class="line">git log</div><div class="line"><span class="meta">#</span>reset到前一个commit</div><div class="line">git commit commitId</div><div class="line"><span class="meta">#</span>查看当前状态</div><div class="line">git status</div><div class="line"><span class="meta">#</span>保持和远端的同步</div><div class="line">git pull</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
+<h3 id="提交到远端之后，需要做一些修改"><a href="#提交到远端之后，需要做一些修改" class="headerlink" title="提交到远端之后，需要做一些修改"></a>提交到远端之后，需要做一些修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">git status</div><div class="line">git add .</div><div class="line">git status</div><div class="line"><span class="meta">#</span>git使用amend选项提供了最后一次commit的反悔</div><div class="line">git commit --amend</div><div class="line">git status</div><div class="line">git commit -s -m "完成的功能</div><div class="line"></div><div class="line">N/A</div><div class="line"></div><div class="line">"</div><div class="line">git push origin 分支:refs/for/分支</div></pre></td></tr></table></figure>
 <ul>
 <li>git使用amend选项提供了最后一次commit的反悔。但是对于历史提交呢，就需要使用rebase了。</li>
 </ul>
