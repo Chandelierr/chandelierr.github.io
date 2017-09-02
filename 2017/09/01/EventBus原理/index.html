@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      EventBus原理 | Chandelierr 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="王梦洁">
+    
+    
+
+    <meta name="description" content="在公司实习，小组的项目使用到这个框架，尽管一直在使用，很顺手很好用，但是不怎么明白里面的原理，赶着最近准备找工作，总结一下吧。 EventBus–ReadMe必然要先从官方文档开始，最然看不怎么懂，但是看看官方的总结还是很有用的。 EventBus is a publish/subscribe event bus optimized for Android. EventBus 是一个针对Andro">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EventBus原理 | Chandelierr">
+<meta property="og:url" content="http://chandelierr.github.io/2017/09/01/EventBus原理/index.html">
+<meta property="og:site_name" content="Chandelierr">
+<meta property="og:description" content="在公司实习，小组的项目使用到这个框架，尽管一直在使用，很顺手很好用，但是不怎么明白里面的原理，赶着最近准备找工作，总结一下吧。 EventBus–ReadMe必然要先从官方文档开始，最然看不怎么懂，但是看看官方的总结还是很有用的。 EventBus is a publish/subscribe event bus optimized for Android. EventBus 是一个针对Andro">
+<meta property="og:image" content="https://github.com/greenrobot/EventBus/raw/master/EventBus-Publish-Subscribe.png">
+<meta property="og:image" content="http://chandelierr.github.io/2017/09/01/EventBus原理/EventBus--register&post.png">
+<meta property="og:updated_time" content="2017-09-02T08:33:09.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EventBus原理 | Chandelierr">
+<meta name="twitter:description" content="在公司实习，小组的项目使用到这个框架，尽管一直在使用，很顺手很好用，但是不怎么明白里面的原理，赶着最近准备找工作，总结一下吧。 EventBus–ReadMe必然要先从官方文档开始，最然看不怎么懂，但是看看官方的总结还是很有用的。 EventBus is a publish/subscribe event bus optimized for Android. EventBus 是一个针对Andro">
+<meta name="twitter:image" content="https://github.com/greenrobot/EventBus/raw/master/EventBus-Publish-Subscribe.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Chandelierr</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">EventBus原理</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-09-01" class="post-meta__date date">2017-09-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>在公司实习，小组的项目使用到这个框架，尽管一直在使用，很顺手很好用，但是不怎么明白里面的原理，赶着最近准备找工作，总结一下吧。</p>
+<h1 id="EventBus–ReadMe"><a href="#EventBus–ReadMe" class="headerlink" title="EventBus–ReadMe"></a>EventBus–ReadMe</h1><p>必然要先从官方文档开始，最然看不怎么懂，但是看看官方的总结还是很有用的。</p>
+<p>EventBus is a publish/subscribe event bus optimized for Android.</p>
+<p><em>EventBus 是一个针对Android优化的发布/订阅的事件总线</em></p>
+<p><a href="https://github.com/greenrobot/EventBus/blob/master/EventBus-Publish-Subscribe.png" target="_blank" rel="external"><img src="https://github.com/greenrobot/EventBus/raw/master/EventBus-Publish-Subscribe.png" alt="img"></a></p>
+<p>EventBus…</p>
+<ul>
+<li><p>simplifies the communication between components</p>
+<p><em>简化组件之间的通信</em></p>
+<ul>
+<li><p>decouples event senders and receivers</p>
+<p><em>分离事件的发送者和接收者</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>performs well with Activities, Fragments, and background threads</p>
+<p><em>在Activity、Fragment以及后台线程上表现良好</em></p>
+</li>
+<li><p>avoids complex and error-prone dependencies and life cycle issues</p>
+<p><em>避免复杂和容易出错的依赖和生命周期问题</em></p>
+</li>
+</ul>
+<ul>
+<li><p>makes your code simpler</p>
+<p><em>牛逼</em></p>
+</li>
+<li><p>is fast</p>
+<p><em>牛逼</em></p>
+</li>
+<li><p>is tiny (~50k jar)</p>
+<p><em>牛逼</em></p>
+</li>
+<li><p>is proven in practice by apps with 100,000,000+ installs</p>
+<p><em>牛逼</em></p>
+</li>
+<li><p>has advanced features like delivery threads, subscriber priorities, etc.</p>
+<p><em>具有传送线程、观察者优先级等高级功能</em></p>
+</li>
+</ul>
+<h2 id="EventBus-in-3-steps"><a href="#EventBus-in-3-steps" class="headerlink" title="EventBus in 3 steps"></a>EventBus in 3 steps</h2><p><em>使用只需要三步哦</em></p>
+<ol>
+<li><p>Define events:</p>
+<p><em>定义 event</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageEvent</span> </span>&#123; <span class="comment">/* Additional fields if needed */</span> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Prepare subscribers: Declare and annotate your subscribing method, optionally specify a thread mode:</p>
+<p><em>准备观察者(或者叫做订阅者):声明和注释你的订阅方法，可选地指定线程模式</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Subscribe</span>(threadMode = ThreadMode.MAIN)  <span class="comment">//比如这个就指定主线程</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessageEvent</span><span class="params">(MessageEvent event)</span> </span>&#123;<span class="comment">/* Do something */</span>&#125;;</div></pre></td></tr></table></figure>
+<p>Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:</p>
+<p><em><code>register()</code>和<code>unregister()</code>你的订阅者。举个栗子：在Android里，acticity和fragment应该在它们的生命周期里做这些工作。</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onStart();</div><div class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onStop();</div><div class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Post events:</p>
+<p><em>发送 event</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EventBus.getDefault().post(<span class="keyword">new</span> MessageEvent());</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Add-EventBus-to-your-project"><a href="#Add-EventBus-to-your-project" class="headerlink" title="Add EventBus to your project"></a>Add EventBus to your project</h2><p>Via Gradle:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'org.greenrobot:eventbus:3.0.0'</span></div></pre></td></tr></table></figure>
+<p>Via Maven:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.greenrobot&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;eventbus&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;3.0.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>Or download <a href="https://search.maven.org/remote_content?g=org.greenrobot&amp;a=eventbus&amp;v=LATEST" target="_blank" rel="external">the latest JAR</a> from Maven Central.</p>
+<h1 id="EventBus的历史版本变化"><a href="#EventBus的历史版本变化" class="headerlink" title="EventBus的历史版本变化"></a>EventBus的历史版本变化</h1><p>eventbus 3.0.0 开始不再规定订阅者的订阅方法名:</p>
+<p>原来的订阅方法要遵守如下命名:</p>
+<ul>
+<li>onEvent</li>
+<li>onEventMainThread</li>
+<li>onEventBackgroundThread</li>
+<li>onEventAsync</li>
+</ul>
+<p>现在可以由自己随意命名，但必须加上注解，加注解方式像上面ReadMe里那样，不加注解会抛出<code>RunTimeException</code></p>
+<h1 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h1><h2 id="1、EventBus-getDefault"><a href="#1、EventBus-getDefault" class="headerlink" title="1、EventBus.getDefault()"></a>1、EventBus.getDefault()</h2><p>看到这个，很容易想到单例模式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> EventBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">synchronized</span> (EventBus.class) &#123;</div><div class="line">            <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                defaultInstance = <span class="keyword">new</span> EventBus();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> defaultInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>果真，还是个懒汉式单例。</p>
+<p>再看构造方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">EventBus</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>(DEFAULT_BUILDER);</div><div class="line">&#125;</div><div class="line"></div><div class="line">EventBus(EventBusBuilder builder) &#123;</div><div class="line">    subscriptionsByEventType = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    typesBySubscriber = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    stickyEvents = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</div><div class="line">    mainThreadPoster = <span class="keyword">new</span> HandlerPoster(<span class="keyword">this</span>, Looper.getMainLooper(), <span class="number">10</span>);</div><div class="line">    backgroundPoster = <span class="keyword">new</span> BackgroundPoster(<span class="keyword">this</span>);</div><div class="line">    asyncPoster = <span class="keyword">new</span> AsyncPoster(<span class="keyword">this</span>);</div><div class="line">    indexCount = builder.subscriberInfoIndexes != <span class="keyword">null</span> ? builder.subscriberInfoIndexes.size() : <span class="number">0</span>;</div><div class="line">    subscriberMethodFinder = <span class="keyword">new</span> SubscriberMethodFinder(builder.subscriberInfoIndexes,</div><div class="line">            builder.strictMethodVerification, builder.ignoreGeneratedIndex);</div><div class="line">    logSubscriberExceptions = builder.logSubscriberExceptions;</div><div class="line">    logNoSubscriberMessages = builder.logNoSubscriberMessages;</div><div class="line">    sendSubscriberExceptionEvent = builder.sendSubscriberExceptionEvent;</div><div class="line">    sendNoSubscriberEvent = builder.sendNoSubscriberEvent;</div><div class="line">    throwSubscriberException = builder.throwSubscriberException;</div><div class="line">    eventInheritance = builder.eventInheritance;</div><div class="line">    executorService = builder.executorService;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造了几个HashMap，用来存放各种订阅者信息的。其中有几个有点熟悉的成员：<code>mainThreadPoster</code>、<code>backgroundPoster</code>、<code>asyncPoster</code>。看起来像是注解的时候的线程。没错，他们就是<code>post()</code>的时候用到的，用于将<code>event</code>在不同的线程发出去，达到在不同的线程中执行的效果。</p>
+<ul>
+<li>mainThreadPoster: 是一个自定义的Handler，在构造的时候传入的是主线程的Looper，所以它是一个主线程对应的Handler。</li>
+<li>backgroundPoster: 这个final类实现了Runnable接口，很显然用于某个线程。</li>
+<li>asyncPoster: 这个类实现了Runnable接口。</li>
+</ul>
+<p>上面三个对象有两个共同的代码:</p>
+<p><code>eventBus.invokeSubscriber(pendingPost)</code>:使用反射调用订阅者的事件方法。</p>
+<p><code>eventBus.getExecutorService().execute(this)</code>:把事件交给空闲的线程去执行。</p>
+<h2 id="2、register-和post"><a href="#2、register-和post" class="headerlink" title="2、register()和post()"></a>2、register()和post()</h2><p>画了一张图</p>
+<p><img src="/2017/09/01/EventBus原理/EventBus--register&amp;post.png" alt="EventBus--register&amp;post"></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
