@@ -24,7 +24,8 @@
 <meta property="og:site_name" content="Chandelierr">
 <meta property="og:description" content="subscribe() 原理subcribe() 核心代码如下 12345public Subscription subscribe(Subscriber subscriber) &amp;#123;  subscriber.onStart();  onSubscribe.call(subscriber);  return subscriber;&amp;#125; Scheduler–线程控制 subscrib">
 <meta property="og:image" content="http://chandelierr.github.io/2017/09/01/RxJava原理简述/线程变换.jpg">
-<meta property="og:updated_time" content="2017-09-01T03:05:39.421Z">
+<meta property="og:image" content="http://chandelierr.github.io/2017/09/01/RxJava原理简述/lift原理.png">
+<meta property="og:updated_time" content="2017-09-03T07:00:39.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJava原理简述 | Chandelierr">
 <meta name="twitter:description" content="subscribe() 原理subcribe() 核心代码如下 12345public Subscription subscribe(Subscriber subscriber) &amp;#123;  subscriber.onStart();  onSubscribe.call(subscriber);  return subscriber;&amp;#125; Scheduler–线程控制 subscrib">
@@ -196,6 +197,7 @@ classes that you can use:
 <li>当含有 <code>lift()</code> 时：<br>1.<code>lift()</code> 创建了一个 <code>Observable</code> 后，加上之前的原始 <code>Observable</code>，已经有两个 <code>Observable</code> 了；<br>2.而同样地，新 <code>Observable</code> 里的新 <code>OnSubscribe</code> 加上之前的原始 <code>Observable</code> 中的原始 <code>OnSubscribe</code>，也就有了两个 <code>OnSubscribe</code>；<br>3.当用户调用经过 <code>lift()</code> 后的 <code>Observable</code> 的 <code>subscribe()</code> 的时候，使用的是 <code>lift()</code> 所返回的新的 <code>Observable</code> ，于是它所触发的 <code>onSubscribe.call(subscriber)</code>，也是用的新 <code>Observable</code> 中的新 <code>OnSubscribe</code>，即在 <code>lift()</code> 中生成的那个 <code>OnSubscribe</code>；<br>4.而这个新 <code>OnSubscribe</code> 的 <code>call()</code> 方法中的 <code>onSubscribe</code> ，就是指的原始 <code>Observable</code> 中的原始 <code>OnSubscribe</code> ，在这个 <code>call()</code>方法里，新 <code>OnSubscribe</code> 利用 <code>operator.call(subscriber)</code> 生成了一个新的 <code>Subscriber</code>（<code>Operator</code> 就是在这里，通过自己的 <code>call()</code> 方法将新 <code>Subscriber</code> 和原始 <code>Subscriber</code> 进行关联，并插入自己的『变换』代码以实现变换），然后利用这个新 <code>Subscriber</code> 向原始 <code>Observable</code> 进行订阅。<br>这样就实现了 <code>lift()</code> 过程，有点<strong>像一种代理机制，通过事件拦截和处理实现事件序列的变换。</strong></li>
 </ul>
 <p>精简掉细节的话，也可以这么说：在 <code>Observable</code> 执行了 <code>lift(Operator)</code> 方法之后，会返回一个新的 <code>Observable</code>，这个新的 <code>Observable</code> 会像一个代理一样，负责接收原始的 <code>Observable</code> 发出的事件，并在处理后发送给 <code>Subscriber</code>。</p>
+<p><img src="/2017/09/01/RxJava原理简述/lift原理.png" alt="lift原理"></p>
 
   </section>
 

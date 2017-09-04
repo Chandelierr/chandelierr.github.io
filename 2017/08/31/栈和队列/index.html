@@ -16,13 +16,13 @@
     
     
 
-    <meta name="description" content="#实现特殊栈返回栈中最小元素   #两个栈实现队列   #不能申请额外空间实现栈的逆序    #栈从顶到底从大到小排序">
+    <meta name="description" content="#实现特殊栈返回栈中最小元素   12345678910111213141516171819private static void example1() &amp;#123;    Stack&amp;lt;Integer&amp;gt; stackData = new Stack&amp;lt;&amp;gt;();	Stack&amp;lt;Integer&amp;gt; stackMin = new Stack&amp;lt;&amp;gt;();	int[]">
 <meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="栈和队列 | Chandelierr">
 <meta property="og:url" content="http://chandelierr.github.io/2017/08/31/栈和队列/index.html">
 <meta property="og:site_name" content="Chandelierr">
-<meta property="og:description" content="#实现特殊栈返回栈中最小元素   #两个栈实现队列   #不能申请额外空间实现栈的逆序    #栈从顶到底从大到小排序">
+<meta property="og:description" content="#实现特殊栈返回栈中最小元素   12345678910111213141516171819private static void example1() &amp;#123;    Stack&amp;lt;Integer&amp;gt; stackData = new Stack&amp;lt;&amp;gt;();	Stack&amp;lt;Integer&amp;gt; stackMin = new Stack&amp;lt;&amp;gt;();	int[]">
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/实现特殊栈返回栈中最小元素.png">
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/实现特殊栈返回栈中最小元素思路1.png">
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/两个栈实现队列.png">
@@ -32,10 +32,10 @@
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/不能申请额外空间实现栈的逆序2.png">
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/栈从顶到底从大到小排序.png">
 <meta property="og:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/栈从顶到底从大到小排序.gif">
-<meta property="og:updated_time" content="2017-08-31T16:41:55.552Z">
+<meta property="og:updated_time" content="2017-09-03T11:38:32.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈和队列 | Chandelierr">
-<meta name="twitter:description" content="#实现特殊栈返回栈中最小元素   #两个栈实现队列   #不能申请额外空间实现栈的逆序    #栈从顶到底从大到小排序">
+<meta name="twitter:description" content="#实现特殊栈返回栈中最小元素   12345678910111213141516171819private static void example1() &amp;#123;    Stack&amp;lt;Integer&amp;gt; stackData = new Stack&amp;lt;&amp;gt;();	Stack&amp;lt;Integer&amp;gt; stackMin = new Stack&amp;lt;&amp;gt;();	int[]">
 <meta name="twitter:image" content="http://chandelierr.github.io/2017/08/31/栈和队列/实现特殊栈返回栈中最小元素.png">
     
     
@@ -189,6 +189,7 @@ classes that you can use:
     <p>#实现特殊栈返回栈中最小元素</p>
 <p><img src="/2017/08/31/栈和队列/实现特殊栈返回栈中最小元素.png" alt="实现特殊栈返回栈中最小元素"></p>
 <p><img src="/2017/08/31/栈和队列/实现特殊栈返回栈中最小元素思路1.png" alt="实现特殊栈返回栈中最小元素思路1"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">example1</span><span class="params">()</span> </span>&#123;</div><div class="line">    Stack&lt;Integer&gt; stackData = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">	Stack&lt;Integer&gt; stackMin = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">	<span class="keyword">int</span>[] data = &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</div><div class="line">	Integer temp = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i ++) &#123;</div><div class="line">		stackData.push(data[i]);</div><div class="line">		<span class="keyword">if</span> (!stackMin.isEmpty()) &#123;</div><div class="line">			temp = stackMin.peek();</div><div class="line">			<span class="keyword">if</span> (temp &lt; data[i]) &#123;</div><div class="line">				stackMin.push(temp);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				stackMin.push(data[i]);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			stackMin.push(data[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>#两个栈实现队列</p>
 <p><img src="/2017/08/31/栈和队列/两个栈实现队列.png" alt="两个栈实现队列"></p>
 <p><img src="/2017/08/31/栈和队列/两个栈实现队列1.png" alt="两个栈实现队列1"></p>
